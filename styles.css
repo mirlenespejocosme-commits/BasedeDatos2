@@ -1,0 +1,234 @@
+/* Estilos modernos e interactivos */
+:root {
+    --primary-color: #003366; /* Color azul institucional (puedes cambiarlo) */
+    --secondary-color: #004080;
+    --accent-color: #ff9900; /* Color de acento para botones */
+    --bg-color: #f0f2f5;
+    --text-color: #333;
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Encabezado (Header) */
+.main-header {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-titles {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.header-titles h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.header-titles h3 {
+    margin: 5px 0 0 0;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #555;
+}
+
+/* Espacio para logos */
+.logo-left, .logo-right {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-left img, .logo-right img {
+    max-height: 90px;
+    max-width: 90px;
+    object-fit: contain;
+}
+
+/* Sección del Título Principal */
+.hero {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: white;
+    background-color: var(--primary-color);
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.main-nav a:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Cajas de las Secciones */
+.section-box {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.section-box h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Unidades (Acordeones interactivos) */
+.unidades-container {
+    margin-top: 20px;
+}
+
+.unidad {
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.unidad summary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+}
+
+.unidad summary::-webkit-details-marker {
+    display: none; /* Ocultar flecha por defecto */
+}
+
+.unidad summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.unidad[open] summary {
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid #ddd;
+}
+
+.unidad[open] summary::after {
+    content: '−';
+}
+
+/* Grilla de Semanas */
+.semanas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 25px;
+    background-color: #fafbfc;
+}
+
+.semana-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    text-align: center;
+    border-top: 4px solid var(--accent-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.semana-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.semana-card h4 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+.semana-card p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: var(--accent-color);
+}
+
+/* Pie de página */
+footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+}
