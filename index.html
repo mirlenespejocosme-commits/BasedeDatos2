@@ -7,52 +7,161 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Portafolio - Base de Datos 2</h1>
-            <nav>
-                <ul>
-                    <li><a href="#sobre-mi">Inicio</a></li>
-                    <li><a href="#proyectos">Trabajos de Grupo</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
+    <!-- Encabezado con logos y nombre de la Universidad -->
+    <header class="main-header">
+        <div class="header-content container">
+            <div class="logo-left">
+                <!-- Aquí va el logo de la UPLA. Guarda la imagen en la carpeta 'img' con el nombre 'logo-upla.png' -->
+                <img src="img/logo-upla.png" alt="Logo UPLA"> 
+            </div>
+            <div class="header-titles">
+                <h2>Universidad Peruana Los Andes</h2>
+                <h3>Facultad de Ingeniería de Sistemas</h3>
+            </div>
+            <div class="logo-right">
+                <!-- Aquí va el logo de la Facultad. Guarda la imagen en la carpeta 'img' con el nombre 'logo-facultad.png' -->
+                <img src="img/logo-facultad.png" alt="Logo Facultad">
+            </div>
         </div>
     </header>
 
-    <section id="sobre-mi" class="container">
-        <h2>Bienvenidos a mi Portafolio</h2>
-        <p>¡Hola! Este espacio está dedicado a documentar y presentar todos los proyectos, investigaciones y trabajos grupales realizados para el curso de <strong>Base de Datos 2</strong>.</p>
+    <!-- Título principal y navegación -->
+    <div class="hero container">
+        <h1>Portafolio Base de Datos 2</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#presentacion">Presentación</a></li>
+                <li><a href="#trabajos">Trabajos</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Sección de Presentación -->
+    <section id="presentacion" class="container section-box">
+        <h2>Presentación</h2>
+        <p>¡Hola! Este espacio está interactivo está dedicado a documentar y presentar todos los proyectos, investigaciones y trabajos grupales realizados para el curso de <strong>Base de Datos 2</strong> a lo largo del semestre académico.</p>
     </section>
 
-    <section id="proyectos" class="container">
-        <h2>Trabajos de Grupo</h2>
-        <div class="grid">
-            <!-- Trabajo 1 -->
-            <div class="card">
-                <h3>Trabajo 1: Modelo Relacional</h3>
-                <p>Descripción del primer proyecto grupal sobre diseño de bases de datos.</p>
-                <a href="#" class="btn">Ver Trabajo</a>
-            </div>
-            <!-- Trabajo 2 -->
-            <div class="card">
-                <h3>Trabajo 2: Consultas SQL Avanzadas</h3>
-                <p>Descripción del trabajo sobre consultas complejas y optimización.</p>
-                <a href="#" class="btn">Ver Trabajo</a>
-            </div>
-            <!-- Trabajo 3 -->
-            <div class="card">
-                <h3>Trabajo 3: Proyecto Final</h3>
-                <p>Implementación completa de la base de datos para un caso de estudio real.</p>
-                <a href="#" class="btn">Ver Trabajo</a>
-            </div>
+    <!-- Sección de Trabajos dividida en Unidades y Semanas -->
+    <section id="trabajos" class="container section-box">
+        <h2>Trabajos por Unidades</h2>
+        
+        <div class="unidades-container">
+            <!-- UNIDAD 1 -->
+            <details class="unidad" open> <!-- 'open' hace que esta unidad empiece desplegada -->
+                <summary>Unidad 1</summary>
+                <div class="semanas-grid">
+                    <div class="semana-card">
+                        <h4>Semana 1</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                    <div class="semana-card">
+                        <h4>Semana 2</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                    <div class="semana-card">
+                        <h4>Semana 3</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                    <div class="semana-card">
+                        <h4>Semana 4</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                </div>
+            </details>
+
+            <!-- UNIDAD 2 -->
+            <details class="unidad">
+                <summary>Unidad 2</summary>
+                <div class="semanas-grid">
+                    <div class="semana-card">
+                        <h4>Semana 1</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                    <div class="semana-card">
+                        <h4>Semana 2</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                    <div class="semana-card">
+                        <h4>Semana 3</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                    <div class="semana-card">
+                        <h4>Semana 4</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                </div>
+            </details>
+
+            <!-- UNIDAD 3 -->
+            <details class="unidad">
+                <summary>Unidad 3</summary>
+                <div class="semanas-grid">
+                    <div class="semana-card">
+                        <h4>Semana 1</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                    <div class="semana-card">
+                        <h4>Semana 2</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                    <div class="semana-card">
+                        <h4>Semana 3</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                    <div class="semana-card">
+                        <h4>Semana 4</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                </div>
+            </details>
+
+            <!-- UNIDAD 4 -->
+            <details class="unidad">
+                <summary>Unidad 4</summary>
+                <div class="semanas-grid">
+                    <div class="semana-card">
+                        <h4>Semana 1</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                    <div class="semana-card">
+                        <h4>Semana 2</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                    <div class="semana-card">
+                        <h4>Semana 3</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                    <div class="semana-card">
+                        <h4>Semana 4</h4>
+                        <p>Descripción del avance o trabajo de esta semana.</p>
+                        <a href="#" class="btn">Ver Trabajo</a>
+                    </div>
+                </div>
+            </details>
         </div>
     </section>
 
-    <footer id="contacto">
-        <div class="container">
-            <h2>Contacto</h2>
-            <p>Proyectos desarrollados en grupo.</p>
+    <!-- Pie de página -->
+    <footer>
+        <div class="container text-center">
+            <p>Universidad Peruana Los Andes - Facultad de Ingeniería de Sistemas</p>
+            <p>Portafolio Estudiantil - Base de Datos 2</p>
         </div>
     </footer>
 </body>
