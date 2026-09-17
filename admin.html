@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrador - Portafolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .admin-bar {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .admin-controls {
+            margin-top: 10px;
+            border-top: 1px dashed #ccc;
+            padding-top: 10px;
+        }
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            background-color: #28a745;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        .btn-warning {
+            background-color: #ffc107;
+            color: #212529;
+        }
+        .btn-info {
+            background-color: #17a2b8;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+        }
+        .modal-content {
+            background: white;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .modal input, .modal textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        #loading-overlay {
+            display: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.8); z-index: 3000;
+            text-align: center; padding-top: 20vh; font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-bar">
+        🔒 MODO ADMINISTRADOR ACTIVO 
+        <button onclick="logout()" class="btn btn-sm btn-danger" style="float: right;">Cerrar Sesión</button>
+        <button onclick="saveToGithub()" class="btn btn-sm" style="float: right;">💾 Guardar Cambios en GitHub</button>
+    </div>
+
+    <header class="main-header">
+        <div class="header-content container">
+            <div class="logo-left">
+                <img src="uplalogo.png" alt="Logo UPLA"> 
+            </div>
+            <div class="header-titles">
+                <h2>Universidad Peruana Los Andes</h2>
+                <h3>Facultad de Ingeniería de Sistemas</h3>
+            </div>
+            <div class="logo-right">
+                <img src="logofacu.jpeg" alt="Logo Facultad">
+            </div>
+        </div>
+    </header>
+
+    <div class="hero container">
+        <h1>Portafolio Base de Datos 2 (Admin)</h1>
+    </div>
+
+    <section id="presentacion" class="container section-box">
+        <h2>Presentación <button onclick="editarPresentacion()" class="btn btn-sm btn-warning">Editar</button></h2>
+        <p id="presentacion-texto">Cargando...</p>
+    </section>
+
+    <section id="trabajos" class="container section-box">
+        <h2>Trabajos por Unidades</h2>
+        <div class="unidades-container" id="unidades-container">
+            <!-- Renderizado por JS -->
+        </div>
+    </section>
+
+    <!-- Modal para Carpeta -->
+    <div id="modal-carpeta" class="modal">
+        <div class="modal-content">
+            <h3>Crear Nueva Carpeta</h3>
+            <input type="hidden" id="modal-carpeta-uIdx">
+            <input type="hidden" id="modal-carpeta-sIdx">
+            <label>Nombre de la carpeta:</label>
+            <input type="text" id="carpeta-nombre" placeholder="Ej. Tareas, Laboratorios...">
+            <button onclick="guardarCarpeta()" class="btn btn-sm">Crear Carpeta</button>
+            <button onclick="closeModal('modal-carpeta')" class="btn btn-sm btn-danger">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal para Actividades -->
+    <div id="modal-actividad" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title">Añadir Archivo a la Carpeta</h3>
+            <input type="hidden" id="modal-unidad-idx">
+            <input type="hidden" id="modal-semana-idx">
+            <input type="hidden" id="modal-carpeta-idx">
+            <label>Nombre del trabajo:</label>
+            <input type="text" id="act-nombre" placeholder="Ej. Práctica 1">
+            <label>Subir Archivo (PDF, JPG, PNG):</label>
+            <input type="file" id="act-file" accept="application/pdf, image/png, image/jpeg, image/jpg, image/gif, image/webp">
+            <button onclick="guardarActividad()" class="btn btn-sm">Guardar y Subir</button>
+            <button onclick="closeModal('modal-actividad')" class="btn btn-sm btn-danger">Cancelar</button>
+        </div>
+    </div>
+
+    <div id="loading-overlay">Sincronizando con GitHub... ⏳</div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
