@@ -101,6 +101,15 @@
                   "archivo": "oracledatabase.jpg"
                 }
               ]
+            },
+            {
+              "nombre": "Actividad 3.2_Sistemas Gestores de Base de Datos no Relacionales",
+              "actividades": [
+                {
+                  "nombre": "Mongo DB",
+                  "archivo": "mongodb.jpg"
+                }
+              ]
             }
           ]
         },
