@@ -1,0 +1,132 @@
+{
+  "presentacion": "¡Hola! Soy el alumno Jorch Espejo este espacio interactivo está dedicado a documentar y presentar todos los trabajos que realizaremos en el curso de Base de Datos 2 a lo largo del semestre académico.",
+  "unidades": [
+    {
+      "id": "unidad-1",
+      "titulo": "Unidad 1",
+      "semanas": [
+        {
+          "id": "u1-s1",
+          "titulo": "Semana 1",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": [
+            { "nombre": "Actividad 1", "archivo": "semana1.1.pdf" },
+            { "nombre": "Actividad 2", "archivo": "semana1.2.pdf" }
+          ]
+        },
+        {
+          "id": "u1-s2",
+          "titulo": "Semana 2",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": [
+            { "nombre": "Actividad 1", "archivo": "semana2.1.pdf" },
+            { "nombre": "Actividad 2", "archivo": "semana2.2.pdf" },
+            { "nombre": "Actividad 3", "archivo": "semana2.3.pdf" }
+          ]
+        },
+        {
+          "id": "u1-s3",
+          "titulo": "Semana 3",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        },
+        {
+          "id": "u1-s4",
+          "titulo": "Semana 4",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        }
+      ]
+    },
+    {
+      "id": "unidad-2",
+      "titulo": "Unidad 2",
+      "semanas": [
+        {
+          "id": "u2-s1",
+          "titulo": "Semana 1",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        },
+        {
+          "id": "u2-s2",
+          "titulo": "Semana 2",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        },
+        {
+          "id": "u2-s3",
+          "titulo": "Semana 3",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        },
+        {
+          "id": "u2-s4",
+          "titulo": "Semana 4",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        }
+      ]
+    },
+    {
+      "id": "unidad-3",
+      "titulo": "Unidad 3",
+      "semanas": [
+        {
+          "id": "u3-s1",
+          "titulo": "Semana 1",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        },
+        {
+          "id": "u3-s2",
+          "titulo": "Semana 2",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        },
+        {
+          "id": "u3-s3",
+          "titulo": "Semana 3",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        },
+        {
+          "id": "u3-s4",
+          "titulo": "Semana 4",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        }
+      ]
+    },
+    {
+      "id": "unidad-4",
+      "titulo": "Unidad 4",
+      "semanas": [
+        {
+          "id": "u4-s1",
+          "titulo": "Semana 1",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        },
+        {
+          "id": "u4-s2",
+          "titulo": "Semana 2",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        },
+        {
+          "id": "u4-s3",
+          "titulo": "Semana 3",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        },
+        {
+          "id": "u4-s4",
+          "titulo": "Semana 4",
+          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "actividades": []
+        }
+      ]
+    }
+  ]
+}
