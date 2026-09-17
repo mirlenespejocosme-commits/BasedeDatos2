@@ -24,6 +24,10 @@
                 {
                   "nombre": "Arquitectura Distribuida",
                   "archivo": "arquitecturadistribuida.png"
+                },
+                {
+                  "nombre": "Arquitectura Multicapa",
+                  "archivo": "arquitecturamulticapa.png"
                 }
               ]
             }
