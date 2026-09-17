@@ -30,6 +30,15 @@
                   "archivo": "arquitecturamulticapa.png"
                 }
               ]
+            },
+            {
+              "nombre": "Actividad 2",
+              "actividades": [
+                {
+                  "nombre": "Arquitecturas de los Sistemas de Administracion de Base de Datos",
+                  "archivo": "arquitecturasdelossistemasdeadministraciondebasededatos.jpg"
+                }
+              ]
             }
           ]
         },
