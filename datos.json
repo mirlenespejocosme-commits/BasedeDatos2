@@ -91,6 +91,10 @@
                 {
                   "nombre": "Sql Server",
                   "archivo": "sqlserver.jpg"
+                },
+                {
+                  "nombre": "Postgre Sql",
+                  "archivo": "postgresql.jpg"
                 }
               ]
             }
