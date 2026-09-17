@@ -80,6 +80,15 @@
                   "archivo": "Manual_Grados_y_Titulos.pdf"
                 }
               ]
+            },
+            {
+              "nombre": "Actividad 3.1 _Sistema Gestores de Base de Datos Relacionales",
+              "actividades": [
+                {
+                  "nombre": "My Sql",
+                  "archivo": "mysql.jpg"
+                }
+              ]
             }
           ]
         },
