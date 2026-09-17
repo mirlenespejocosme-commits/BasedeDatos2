@@ -71,6 +71,15 @@
                   "archivo": "Manual_Instalacion_MYsqlserver.pdf"
                 }
               ]
+            },
+            {
+              "nombre": "Actividad 2",
+              "actividades": [
+                {
+                  "nombre": "Manual_Grados_y_Titulos",
+                  "archivo": "Manual_Grados_y_Titulos.pdf"
+                }
+              ]
             }
           ]
         },
