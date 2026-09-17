@@ -8,7 +8,7 @@
         {
           "id": "u1-s1",
           "titulo": "Semana 1",
-          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "descripcion": "Formulación del Proyecto y Selección \nde la Arquitectura.",
           "actividades": [
             {
               "nombre": "Actividad 1",
@@ -23,7 +23,7 @@
         {
           "id": "u1-s2",
           "titulo": "Semana 2",
-          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "descripcion": "Despliegue y Configuración de Motores \nde Datos (DBMS)",
           "actividades": [
             {
               "nombre": "Actividad 1",
