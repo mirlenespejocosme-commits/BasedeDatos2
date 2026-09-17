@@ -87,6 +87,10 @@
                 {
                   "nombre": "My Sql",
                   "archivo": "mysql.jpg"
+                },
+                {
+                  "nombre": "Sql Server",
+                  "archivo": "sqlserver.jpg"
                 }
               ]
             }
