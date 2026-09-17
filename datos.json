@@ -10,8 +10,14 @@
           "titulo": "Semana 1",
           "descripcion": "Descripción del avance o trabajo de esta semana.",
           "actividades": [
-            { "nombre": "Actividad 1", "archivo": "semana1.1.pdf" },
-            { "nombre": "Actividad 2", "archivo": "semana1.2.pdf" }
+            {
+              "nombre": "Actividad 1",
+              "archivo": "semana1.1.pdf"
+            },
+            {
+              "nombre": "Actividad 2",
+              "archivo": "semana1.2.pdf"
+            }
           ]
         },
         {
@@ -19,9 +25,22 @@
           "titulo": "Semana 2",
           "descripcion": "Descripción del avance o trabajo de esta semana.",
           "actividades": [
-            { "nombre": "Actividad 1", "archivo": "semana2.1.pdf" },
-            { "nombre": "Actividad 2", "archivo": "semana2.2.pdf" },
-            { "nombre": "Actividad 3", "archivo": "semana2.3.pdf" }
+            {
+              "nombre": "Actividad 1",
+              "archivo": "semana2.1.pdf"
+            },
+            {
+              "nombre": "Actividad 2",
+              "archivo": "semana2.2.pdf"
+            },
+            {
+              "nombre": "Actividad 3",
+              "archivo": "semana2.3.pdf"
+            },
+            {
+              "nombre": "actividad 4",
+              "archivo": "cableadoSEMANA1.pdf"
+            }
           ]
         },
         {
