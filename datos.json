@@ -45,6 +45,10 @@
                 {
                   "nombre": "Evolucion de la Tecnologia de Base de Datos",
                   "archivo": "evoluciondelatecnologiadebasededatos.jpg"
+                },
+                {
+                  "nombre": "Arquitecturas de los Sistemas de Administracion de Base de Datos",
+                  "archivo": "arquitecturasdelossistemasdeadministraciondebasededatos.jpg"
                 }
               ]
             }
