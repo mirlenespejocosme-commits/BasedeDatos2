@@ -124,6 +124,10 @@
                 {
                   "nombre": "Introducción a los SGBD",
                   "archivo": "introducción_a_los_SGBD.jpg"
+                },
+                {
+                  "nombre": "Tipos de SGBD",
+                  "archivo": "Tipos_de_SGBD.jpg"
                 }
               ]
             }
