@@ -20,6 +20,10 @@
                 {
                   "nombre": "Arquitectura Cliente",
                   "archivo": "arquitecturacliente.png"
+                },
+                {
+                  "nombre": "Arquitectura Distribuida",
+                  "archivo": "arquitecturadistribuida.png"
                 }
               ]
             }
