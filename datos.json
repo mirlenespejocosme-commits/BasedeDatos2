@@ -119,8 +119,13 @@
           "descripcion": "Modelamiento Físico y Mecanismos de \nIntegración: ",
           "carpetas": [
             {
-              "nombre": "Trabajos",
-              "actividades": []
+              "nombre": "Actividad 1:INFOGRAFIAS",
+              "actividades": [
+                {
+                  "nombre": "Introducción a los SGBD",
+                  "archivo": "introducción_a_los_SGBD.jpg"
+                }
+              ]
             }
           ]
         },
