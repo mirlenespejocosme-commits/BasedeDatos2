@@ -95,6 +95,10 @@
                 {
                   "nombre": "Postgre sql",
                   "archivo": "postgresql.jpg"
+                },
+                {
+                  "nombre": "Oracle Data Base",
+                  "archivo": "oracledatabase.jpg"
                 }
               ]
             }
