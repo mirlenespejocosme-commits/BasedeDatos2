@@ -30,6 +30,15 @@
                   "archivo": "arquitecturamulticapa.png"
                 }
               ]
+            },
+            {
+              "nombre": "Actividad 2",
+              "actividades": [
+                {
+                  "nombre": "Caracteristicas de Base de Datos",
+                  "archivo": "caracteristicasdebasededatos.jpg"
+                }
+              ]
             }
           ]
         },
