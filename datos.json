@@ -168,6 +168,15 @@
                   "archivo": "CadenaEditorial.sql"
                 }
               ]
+            },
+            {
+              "nombre": "Actividad 2.3:SQL Server:Empresa",
+              "actividades": [
+                {
+                  "nombre": "Empresa SQL Server",
+                  "archivo": "EmpresaMaterialInformatico.sql"
+                }
+              ]
             }
           ]
         },
