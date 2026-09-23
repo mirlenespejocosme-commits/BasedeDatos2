@@ -153,7 +153,12 @@
             },
             {
               "nombre": "Actividad 2.1: SQL SERVER_Grados_y_Titulos",
-              "actividades": []
+              "actividades": [
+                {
+                  "nombre": "Archivo_sqlServer_Grados y títulos",
+                  "archivo": "GradosTitulos_corregido.sql"
+                }
+              ]
             }
           ]
         },
