@@ -16,6 +16,10 @@
                 {
                   "nombre": "Arquitectura Centralizada",
                   "archivo": "arquitecturacentralizada.png"
+                },
+                {
+                  "nombre": "Arquitectura Cliente",
+                  "archivo": "arquitecturacliente.png"
                 }
               ]
             }
