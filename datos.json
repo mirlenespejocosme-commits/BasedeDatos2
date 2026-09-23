@@ -64,19 +64,11 @@
           "descripcion": "Despliegue y Configuración de Motores \nde Datos (DBMS):",
           "carpetas": [
             {
-              "nombre": "Trabajos",
+              "nombre": "Actividad 1",
               "actividades": [
                 {
-                  "nombre": "Actividad 1",
+                  "nombre": "Manual SQL Server",
                   "archivo": "semana2.1.pdf"
-                },
-                {
-                  "nombre": "Actividad 2",
-                  "archivo": "semana2.2.pdf"
-                },
-                {
-                  "nombre": "Actividad 3",
-                  "archivo": "semana2.3.pdf"
                 }
               ]
             }
