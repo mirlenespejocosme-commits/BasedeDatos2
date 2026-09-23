@@ -159,6 +159,15 @@
                   "archivo": "GradosTitulos_corregido.sql"
                 }
               ]
+            },
+            {
+              "nombre": "Actividad 2.2:SQL Server_Editorial",
+              "actividades": [
+                {
+                  "nombre": "Cadena Editorial",
+                  "archivo": "CadenaEditorial.sql"
+                }
+              ]
             }
           ]
         },
