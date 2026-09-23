@@ -136,6 +136,10 @@
                 {
                   "nombre": "Ventajas de SGBD",
                   "archivo": "VENTAJAS_DE_SGBD.jpg"
+                },
+                {
+                  "nombre": "ARQUITECTURA DE BASE DE DATOS ",
+                  "archivo": "ARQUITECTURA_DE_BASE_DE_DATOS_.jpg"
                 }
               ]
             }
