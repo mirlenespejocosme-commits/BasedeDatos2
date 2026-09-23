@@ -80,6 +80,15 @@
                   "archivo": "semana2.2.pdf"
                 }
               ]
+            },
+            {
+              "nombre": "Actividad 3.1:Sistema Gestores de Base de Datos Relacionales",
+              "actividades": [
+                {
+                  "nombre": "SQL Server",
+                  "archivo": "sqlserver.jpg"
+                }
+              ]
             }
           ]
         },
