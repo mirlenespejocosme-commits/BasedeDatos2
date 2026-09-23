@@ -71,6 +71,15 @@
                   "archivo": "semana2.1.pdf"
                 }
               ]
+            },
+            {
+              "nombre": "Actividad 2",
+              "actividades": [
+                {
+                  "nombre": "Reglamento Grados y Títulos",
+                  "archivo": "semana2.2.pdf"
+                }
+              ]
             }
           ]
         },
