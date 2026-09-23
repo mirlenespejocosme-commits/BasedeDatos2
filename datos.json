@@ -1,5 +1,5 @@
 {
-  "presentacion": "¡Hola! Soy el alumno Jorch Espejo este espacio interactivo está dedicado a documentar y presentar todos los trabajos que realizaremos en el curso de Base de Datos 2 a lo largo del semestre académico.",
+  "presentacion": "¡Hola! Soy el alumno JORCH ESPEJO , tengo 23 años pertenezco a la facultad de INGENIERIA DE SISTEMAS y soy parte de la seleccion de futsal de la universidad, este espacio interactivo está dedicado a documentar y presentar todos los trabajos que realizaremos en el curso de Base de Datos 2 a lo largo del semestre académico.",
   "unidades": [
     {
       "id": "unidad-1",
@@ -223,5 +223,6 @@
         }
       ]
     }
-  ]
+  ],
+  "foto_perfil": "perfil_WhatsApp_Image_2026-09-22_at_23.29.57.jpeg"
 }
