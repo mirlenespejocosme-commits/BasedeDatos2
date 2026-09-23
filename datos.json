@@ -91,6 +91,10 @@
                 {
                   "nombre": "MY sql",
                   "archivo": "mysql.jpg"
+                },
+                {
+                  "nombre": "Postgre sql",
+                  "archivo": "postgresql.jpg"
                 }
               ]
             }
