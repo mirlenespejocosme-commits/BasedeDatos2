@@ -196,7 +196,12 @@
             },
             {
               "nombre": "Actividad 2 : Informe de preguntas",
-              "actividades": []
+              "actividades": [
+                {
+                  "nombre": "Pregúntas Resueltas",
+                  "archivo": "Informe_CadenaEditorial_Grimorio.pdf"
+                }
+              ]
             }
           ]
         }
