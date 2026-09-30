@@ -183,10 +183,19 @@
         {
           "id": "u1-s4",
           "titulo": "Semana 4",
-          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "descripcion": "Sustentación y Validación de la \nInfraestructura de Datos:",
           "carpetas": [
             {
-              "nombre": "Trabajos",
+              "nombre": "Actividad 1:base de datos de Cadena Editorial",
+              "actividades": [
+                {
+                  "nombre": "Cadena_Editorial",
+                  "archivo": "cadenaEditorialsemana4.sql"
+                }
+              ]
+            },
+            {
+              "nombre": "Actividad 2 : Informe de preguntas",
               "actividades": []
             }
           ]
