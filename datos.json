@@ -202,6 +202,15 @@
                   "archivo": "Informe_CadenaEditorial_Grimorio.pdf"
                 }
               ]
+            },
+            {
+              "nombre": "Actividad 3:Infogracias ",
+              "actividades": [
+                {
+                  "nombre": "Infografías",
+                  "archivo": "Saga_de_la_Cadena_Editorial.html"
+                }
+              ]
             }
           ]
         }
