@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Saga de la Cadena Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#141210; --bg2:#1d1a16; --panel:#211d19; --stone:#2a241e;
+  --gold:#c9a24b; --gold-d:#8a6c2e; --red:#8c1f1f; --red-l:#b5341f;
+  --ice:#5c8ea3; --txt:#e7dfce; --txt-dim:#a99e89;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  box-sizing:border-box;
+}
+*{box-sizing:border-box;}
+html{height:100%; scroll-padding-top:env(safe-area-inset-top,0px);}
+body{
+  margin:0; height:100%; min-height:100vh; background:
+    radial-gradient(ellipse at 20% 0%, #2a2117 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 100%, #1a1310 0%, transparent 55%), var(--bg);
+  color:var(--txt); font-family:'EB Garamond',serif; display:flex; flex-direction:column;
+}
+header{padding:18px 20px 14px; text-align:center; border-bottom:2px solid var(--gold-d); background:linear-gradient(180deg,#1b1713,#141210);}
+header h1{font-family:'Cinzel',serif; font-weight:900; letter-spacing:2px; margin:0; font-size:clamp(20px,4vw,34px); color:var(--gold); text-shadow:0 0 14px rgba(201,162,75,.35), 0 2px 0 #000;}
+header p{margin:6px 0 0; color:var(--txt-dim); font-style:italic; font-size:14px;}
+.wrap{display:flex; flex:1; min-height:0; max-width:1300px; margin:0 auto; width:100%;}
+nav{width:230px; flex:0 0 230px; background:var(--bg2); border-right:2px solid var(--gold-d); overflow-y:auto; padding:10px;}
+nav button{display:block; width:100%; text-align:left; background:transparent; border:1px solid transparent; color:var(--txt-dim); font-family:'Cinzel',serif; font-size:12.5px; letter-spacing:.5px; padding:9px 10px; margin-bottom:4px; cursor:pointer; border-radius:3px; transition:.15s;}
+nav button:hover{background:var(--stone); color:var(--txt);}
+nav button.active{background:linear-gradient(90deg, rgba(140,31,31,.4), transparent); color:var(--gold); border-left:3px solid var(--red-l);}
+main{flex:1; overflow-y:auto; padding:22px clamp(14px,3vw,34px) 40px;}
+.chapter-title{font-family:'Cinzel',serif; color:var(--gold); font-size:clamp(18px,3vw,26px); border-bottom:1px solid var(--gold-d); padding-bottom:10px; margin:0 0 18px; letter-spacing:1px;}
+.card{background:linear-gradient(180deg,var(--panel),#1a1612); border:1px solid #3a2f22; border-left:4px solid var(--red-l); border-radius:4px; padding:18px 20px; margin-bottom:22px; box-shadow:0 6px 18px rgba(0,0,0,.4);}
+.card h3{font-family:'Cinzel',serif; color:var(--txt); font-size:16px; margin:0 0 4px; line-height:1.4;}
+.card .tag{display:inline-block; font-family:'Cinzel',serif; font-size:10.5px; color:#1a1612; background:var(--gold); padding:2px 8px; border-radius:2px; margin-bottom:8px; letter-spacing:1px;}
+.label{font-family:'Cinzel',serif; font-size:11px; color:var(--ice); letter-spacing:1.5px; margin:14px 0 6px; display:flex; align-items:center; gap:6px;}
+.label::before{content:"⚔"; color:var(--red-l);}
+pre{background:#0f0d0b; border:1px solid #3a2f22; border-radius:3px; padding:10px 12px; overflow-x:auto; font-size:12.5px; line-height:1.5; color:#d9c89a; margin:0;}
+.explain{color:var(--txt-dim); font-size:15px; font-style:italic;}
+.tbl-wrap{overflow-x:auto; border:1px solid #3a2f22; border-radius:3px;}
+table{width:100%; border-collapse:collapse; font-size:12.5px; white-space:nowrap;}
+th,td{border-bottom:1px solid #2c261f; padding:5px 10px; text-align:left; color:var(--txt);}
+th{background:#241f1a; color:var(--gold); font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.5px; position:sticky; top:0;}
+tr:nth-child(even) td{background:rgba(255,255,255,.02);}
+.empty-note{padding:8px 10px; color:var(--txt-dim); font-style:italic;}
+.footer-nav{display:flex; justify-content:space-between; gap:10px; max-width:1300px; margin:0 auto; width:100%; padding:10px clamp(14px,3vw,34px) 18px;}
+.footer-nav button{font-family:'Cinzel',serif; background:var(--stone); border:1px solid var(--gold-d); color:var(--gold); padding:10px 18px; border-radius:3px; cursor:pointer; font-size:13px; letter-spacing:1px;}
+.footer-nav button:disabled{opacity:.3; cursor:default;}
+::-webkit-scrollbar{width:9px; height:9px;} ::-webkit-scrollbar-thumb{background:#3a2f22; border-radius:5px;}
+@media (max-width:720px){
+  .wrap{flex-direction:column;}
+  nav{width:100%; flex:0 0 auto; max-height:140px; border-right:none; border-bottom:2px solid var(--gold-d); display:flex; flex-wrap:nowrap; overflow-x:auto;}
+  nav button{display:inline-block; width:auto; white-space:nowrap; margin-right:6px;}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>⚔ LA SAGA DE LA CADENA EDITORIAL ⚔</h1>
+  <p>20 crónicas · 40 pruebas de consulta SQL con sus tablas completas</p>
+</header>
+<div class="wrap">
+  <nav id="nav"></nav>
+  <main id="main"></main>
+</div>
+<div class="footer-nav">
+  <button id="prev">◀ CAPÍTULO ANTERIOR</button>
+  <button id="next">CAPÍTULO SIGUIENTE ▶</button>
+</div>
+<script>
+// d = [pregunta, sql, cols("A|B|C"), filas("a|b|c\nd|e|f"), explicacion]
+const DATA = [
+[1,"01-02",[
+["¿Cuáles son todas las sucursales de la cadena editorial?",
+"SELECT IdSucursal, CodigoSucursal, Domicilio, Telefono FROM Sucursal;",
+"IdSucursal|CodigoSucursal|Domicilio|Telefono",
+`1|SUC001|Av. Arequipa 1010, Lima|01-4101001
+2|SUC002|Av. Brasil 1250, Lima|01-4101002
+3|SUC003|Av. Javier Prado 2200, Lima|01-4101003
+4|SUC004|Av. La Marina 1500, Lima|01-4101004
+5|SUC005|Av. Angamos 1800, Lima|01-4101005
+6|SUC006|Av. Colonial 1450, Callao|01-4101006
+7|SUC007|Av. Universitaria 3200, Lima|01-4101007
+8|SUC008|Av. Primavera 450, Lima|01-4101008
+9|SUC009|Av. Benavides 1750, Lima|01-4101009
+10|SUC010|Av. Alfonso Ugarte 950, Lima|01-4101010
+11|SUC011|Av. Grau 850, Lima|01-4101011
+12|SUC012|Av. Tacna 720, Lima|01-4101012
+13|SUC013|Av. Canadá 1250, Lima|01-4101013
+14|SUC014|Av. República de Panamá 3300, Lima|01-4101014
+15|SUC015|Av. Tomás Marsano 1800, Lima|01-4101015
+16|SUC016|Av. Caminos del Inca 650, Lima|01-4101016
+17|SUC017|Av. Petit Thouars 1450, Lima|01-4101017
+18|SUC018|Av. Prolongación Iquitos 900, Lima|01-4101018
+19|SUC019|Av. Nicolás de Piérola 1100, Lima|01-4101019
+20|SUC020|Av. Elmer Faucett 1200, Callao|01-4101020`,
+"Consulta básica que recupera sin filtros toda la tabla Sucursal."],
+["¿Cuáles son las revistas registradas y su periodicidad?",
+"SELECT Titulo, Periodicidad FROM Revista;",
+"Titulo|Periodicidad",
+`Tecnologia Hoy|Mensual
+Mundo Digital|Mensual
+Ciencia Actual|Mensual
+Economia Global|Semanal
+Salud y Vida|Mensual
+Cultura Peruana|Mensual
+Actualidad Nacional|Semanal
+Negocios 360|Quincenal
+Innovacion Tech|Mensual
+Educacion Hoy|Mensual
+Viajes y Turismo|Mensual
+Deportes Total|Semanal
+Historia Viva|Mensual
+Arte y Diseño|Mensual
+Finanzas Personales|Quincenal
+Cocina Peruana|Mensual
+Mundo Empresarial|Semanal
+Ciencia y Futuro|Mensual
+Sociedad Hoy|Quincenal
+Programacion Web|Mensual`,
+"SELECT simple que muestra título y periodicidad de cada revista."]]],
+[2,"03-04",[
+["¿Qué revistas tienen periodicidad mensual?",
+"SELECT IdRevista, Titulo, Tipo FROM Revista WHERE Periodicidad = 'Mensual';",
+"IdRevista|Titulo|Tipo",
+`1|Tecnologia Hoy|Tecnologia
+2|Mundo Digital|Tecnologia
+3|Ciencia Actual|Ciencia
+5|Salud y Vida|Salud
+6|Cultura Peruana|Cultura
+9|Innovacion Tech|Tecnologia
+10|Educacion Hoy|Educacion
+11|Viajes y Turismo|Turismo
+13|Historia Viva|Historia
+14|Arte y Diseño|Arte
+16|Cocina Peruana|Gastronomia
+18|Ciencia y Futuro|Ciencia
+20|Programacion Web|Tecnologia`,
+"WHERE filtra únicamente las revistas cuya periodicidad es Mensual."],
+["¿Qué empleados trabajan en la sucursal número 1?",
+"SELECT IdEmpleado, Nombre, Apellidos, NIF, Telefono FROM Empleado WHERE IdSucursal = 1;",
+"IdEmpleado|Nombre|Apellidos|NIF|Telefono",
+`1|Carlos|Ramirez Torres|NIF100001|999100001
+2|Ana|Flores Mendoza|NIF100002|999100002`,
+"WHERE IdSucursal = 1 limita el resultado a los empleados de esa sucursal."]]],
+[3,"05-06",[
+["¿Qué periodistas tienen especialidad en tecnología?",
+"SELECT IdPeriodista, Nombre, Apellidos, Especialidad FROM Periodista WHERE Especialidad = 'Tecnologia';",
+"IdPeriodista|Nombre|Apellidos|Especialidad",
+`1|Alberto|Navarro Ruiz|Tecnologia
+9|Ivan|Morales Perez|Tecnologia
+17|Rafael|Ortega Ruiz|Tecnologia`,
+"WHERE filtra a los periodistas cuya especialidad registrada es Tecnología."],
+["¿Cómo se pueden listar las revistas ordenadas alfabéticamente?",
+"SELECT IdRevista, Titulo, Periodicidad, Tipo FROM Revista ORDER BY Titulo ASC;",
+"IdRevista|Titulo|Periodicidad|Tipo",
+`7|Actualidad Nacional|Semanal|Actualidad
+14|Arte y Diseño|Mensual|Arte
+3|Ciencia Actual|Mensual|Ciencia
+18|Ciencia y Futuro|Mensual|Ciencia
+16|Cocina Peruana|Mensual|Gastronomia
+6|Cultura Peruana|Mensual|Cultura
+12|Deportes Total|Semanal|Deportes
+4|Economia Global|Semanal|Economia
+10|Educacion Hoy|Mensual|Educacion
+15|Finanzas Personales|Quincenal|Finanzas
+13|Historia Viva|Mensual|Historia
+9|Innovacion Tech|Mensual|Tecnologia
+2|Mundo Digital|Mensual|Tecnologia
+17|Mundo Empresarial|Semanal|Empresarial
+8|Negocios 360|Quincenal|Negocios
+20|Programacion Web|Mensual|Tecnologia
+5|Salud y Vida|Mensual|Salud
+19|Sociedad Hoy|Quincenal|Sociedad
+1|Tecnologia Hoy|Mensual|Tecnologia
+11|Viajes y Turismo|Mensual|Turismo`,
+"ORDER BY Titulo ASC organiza todas las revistas en orden alfabético."]]],
+[4,"07-08",[
+["¿Qué ejemplares registraron más de 5 000 unidades vendidas?",
+"SELECT e.IdEjemplar, r.Titulo, e.Fecha, e.NumeroPaginas, e.EjemplaresVendidos\nFROM Ejemplar e INNER JOIN Revista r ON r.IdRevista=e.IdRevista\nWHERE e.EjemplaresVendidos > 5000 ORDER BY e.EjemplaresVendidos DESC;",
+"IdEjemplar|Revista|Fecha|NumeroPaginas|EjemplaresVendidos",
+`12|Economia Global|2026-04-05|152|7900
+47|Cocina Peruana|2026-03-05|56|7900
+1|Tecnologia Hoy|2026-02-05|112|7800
+15|Salud y Vida|2026-05-05|104|7700
+50|Mundo Empresarial|2026-04-05|112|7700
+4|Mundo Digital|2026-03-05|64|7600
+18|Cultura Peruana|2026-03-05|56|7500
+53|Ciencia y Futuro|2026-02-05|64|7500
+7|Ciencia Actual|2026-01-05|120|7400
+21|Actualidad Nacional|2026-04-05|112|7300
+56|Sociedad Hoy|2026-03-05|120|7300
+10|Economia Global|2026-02-05|72|7200
+24|Negocios 360|2026-05-05|64|7100
+59|Programacion Web|2026-04-05|72|7100
+13|Salud y Vida|2026-03-05|128|7000
+27|Innovacion Tech|2026-03-05|120|6900
+16|Cultura Peruana|2026-01-05|80|6800
+30|Educacion Hoy|2026-04-05|72|6700
+19|Actualidad Nacional|2026-02-05|136|6600
+33|Viajes y Turismo|2026-05-05|128|6500
+22|Negocios 360|2026-03-05|88|6400
+36|Deportes Total|2026-03-05|80|6300
+25|Innovacion Tech|2026-01-05|144|6200
+39|Historia Viva|2026-04-05|136|6100
+28|Educacion Hoy|2026-02-05|96|6000
+42|Arte y Diseño|2026-05-05|88|5900
+31|Viajes y Turismo|2026-03-05|152|5800
+45|Finanzas Personales|2026-03-05|144|5700
+34|Deportes Total|2026-01-05|104|5600
+48|Cocina Peruana|2026-04-05|96|5500
+2|Tecnologia Hoy|2026-03-05|152|5400
+37|Historia Viva|2026-02-05|56|5400
+51|Mundo Empresarial|2026-05-05|152|5300
+5|Mundo Digital|2026-04-05|104|5200
+40|Arte y Diseño|2026-03-05|112|5200
+54|Ciencia y Futuro|2026-03-05|104|5100`,
+"INNER JOIN relaciona Ejemplar y Revista, filtrando ventas superiores a 5 000."],
+["¿Qué secciones fijas tienen una extensión superior a 7 páginas?",
+"SELECT sf.IdSeccion, sf.Titulo, sf.Extension, r.Titulo AS Revista\nFROM SeccionFija sf INNER JOIN Revista r ON r.IdRevista=sf.IdRevista\nWHERE sf.Extension > 7 ORDER BY sf.Extension DESC;",
+"IdSeccion|Seccion|Extension|Revista",
+`15|Opinion|9|Salud y Vida
+19|Noticias|9|Cultura Peruana
+24|Innovacion|9|Actualidad Nacional
+43|Noticias|9|Historia Viva
+47|Innovacion|9|Arte y Diseño
+52|Opinion|9|Finanzas Personales
+4|Investigacion|8|Mundo Digital
+9|Entrevistas|8|Ciencia Actual
+32|Entrevistas|8|Educacion Hoy
+37|Editorial|8|Viajes y Turismo
+60|Editorial|8|Ciencia y Futuro
+65|Investigacion|8|Sociedad Hoy`,
+"INNER JOIN une secciones con su revista y filtra extensión mayor a 7."]]],
+[5,"09-10",[
+["¿Qué empleados trabajan en cada sucursal?",
+"SELECT s.CodigoSucursal, s.Domicilio, e.Nombre, e.Apellidos\nFROM Sucursal s INNER JOIN Empleado e ON e.IdSucursal=s.IdSucursal\nORDER BY s.CodigoSucursal, e.Apellidos;",
+"CodigoSucursal|Domicilio|Nombre|Apellidos",
+`SUC001|Av. Arequipa 1010, Lima|Ana|Flores Mendoza
+SUC001|Av. Arequipa 1010, Lima|Carlos|Ramirez Torres
+SUC002|Av. Brasil 1250, Lima|Luis|Gonzales Perez
+SUC002|Av. Brasil 1250, Lima|Maria|Quispe Rojas
+SUC003|Av. Javier Prado 2200, Lima|Jorge|Castillo Vargas
+SUC003|Av. Javier Prado 2200, Lima|Lucia|Fernandez Diaz
+SUC004|Av. La Marina 1500, Lima|Pedro|Sanchez Leon
+SUC004|Av. La Marina 1500, Lima|Rosa|Torres Silva
+SUC005|Av. Angamos 1800, Lima|Miguel|Herrera Campos
+SUC005|Av. Angamos 1800, Lima|Carmen|Vega Salazar
+SUC006|Av. Colonial 1450, Callao|Jose|Mendoza Ruiz
+SUC007|Av. Universitaria 3200, Lima|Elena|Paredes Soto
+SUC008|Av. Primavera 450, Lima|Daniel|Morales Castro
+SUC009|Av. Benavides 1750, Lima|Patricia|Navarro Cruz
+SUC010|Av. Alfonso Ugarte 950, Lima|Fernando|Vargas Medina
+SUC011|Av. Grau 850, Lima|Silvia|Ramos Ortiz
+SUC012|Av. Tacna 720, Lima|Ricardo|Salinas Peña
+SUC013|Av. Canadá 1250, Lima|Claudia|Molina Reyes
+SUC014|Av. República de Panamá 3300, Lima|Andres|Campos Herrera
+SUC015|Av. Tomás Marsano 1800, Lima|Gabriela|Ruiz Delgado`,
+"INNER JOIN relaciona cada sucursal con sus empleados."],
+["¿Qué revistas publica cada sucursal?",
+"SELECT s.CodigoSucursal, s.Domicilio, r.Titulo AS Revista\nFROM Sucursal s INNER JOIN SucursalRevista sr ON sr.IdSucursal=s.IdSucursal\nINNER JOIN Revista r ON r.IdRevista=sr.IdRevista ORDER BY s.CodigoSucursal, r.Titulo;",
+"CodigoSucursal|Domicilio|Revista",
+`SUC001|Av. Arequipa 1010, Lima|Mundo Digital
+SUC001|Av. Arequipa 1010, Lima|Tecnologia Hoy
+SUC002|Av. Brasil 1250, Lima|Ciencia Actual
+SUC002|Av. Brasil 1250, Lima|Economia Global
+SUC003|Av. Javier Prado 2200, Lima|Cultura Peruana
+SUC003|Av. Javier Prado 2200, Lima|Salud y Vida
+SUC004|Av. La Marina 1500, Lima|Actualidad Nacional
+SUC004|Av. La Marina 1500, Lima|Negocios 360
+SUC005|Av. Angamos 1800, Lima|Educacion Hoy
+SUC005|Av. Angamos 1800, Lima|Innovacion Tech
+SUC006|Av. Colonial 1450, Callao|Viajes y Turismo
+SUC007|Av. Universitaria 3200, Lima|Deportes Total
+SUC008|Av. Primavera 450, Lima|Historia Viva
+SUC009|Av. Benavides 1750, Lima|Arte y Diseño
+SUC010|Av. Alfonso Ugarte 950, Lima|Finanzas Personales
+SUC011|Av. Grau 850, Lima|Cocina Peruana
+SUC012|Av. Tacna 720, Lima|Mundo Empresarial
+SUC013|Av. Canadá 1250, Lima|Ciencia y Futuro
+SUC014|Av. República de Panamá 3300, Lima|Sociedad Hoy
+SUC015|Av. Tomás Marsano 1800, Lima|Programacion Web`,
+"Se combinan tres tablas para identificar qué revistas publica cada sucursal."]]],
+[6,"11-12",[
+["¿Quién escribió cada artículo y para qué revista?",
+"SELECT a.IdArticulo, a.Titulo, a.FechaPublicacion, p.Nombre+' '+p.Apellidos AS Periodista, r.Titulo AS Revista\nFROM Articulo a INNER JOIN Periodista p ON p.IdPeriodista=a.IdPeriodista\nINNER JOIN Revista r ON r.IdRevista=a.IdRevista ORDER BY a.FechaPublicacion;",
+"IdArticulo|Articulo|FechaPublicacion|Periodista|Revista",
+`1|El futuro de la inteligencia artificial|2026-01-10|Alberto Navarro Ruiz|Tecnologia Hoy
+2|Transformacion digital empresarial|2026-01-15|Beatriz Castro Leon|Economia Global
+3|Nuevos avances cientificos|2026-02-05|Diana Flores Torres|Ciencia Actual
+4|Tecnologia y sociedad moderna|2026-02-12|Ivan Morales Perez|Mundo Digital
+5|Innovacion en las empresas|2026-02-20|Kevin Paredes Leon|Negocios 360
+6|El desarrollo de la ciencia peruana|2026-03-01|Sandra Delgado Silva|Ciencia y Futuro
+7|Educacion digital en el siglo XXI|2026-03-08|Helena Vargas Cruz|Educacion Hoy
+8|Turismo sostenible en el Peru|2026-03-15|Julia Salazar Medina|Viajes y Turismo
+9|Nuevas tendencias deportivas|2026-03-20|Eduardo Ramirez Soto|Deportes Total
+10|La cultura peruana contemporanea|2026-03-25|Fabiola Quispe Ramos|Cultura Peruana
+11|Historia de Lima moderna|2026-04-01|Manuel Torres Vargas|Historia Viva
+12|Diseño y creatividad digital|2026-04-05|Laura Sanchez Castro|Arte y Diseño
+13|Consejos para mejorar las finanzas|2026-04-10|Oscar Vega Campos|Finanzas Personales
+14|Gastronomia peruana internacional|2026-04-15|Natalia Rojas Mendoza|Cocina Peruana
+15|Retos de la sociedad actual|2026-04-20|Paola Molina Reyes|Sociedad Hoy
+16|Programacion web moderna|2026-05-01|Rafael Ortega Ruiz|Programacion Web
+17|Salud y tecnologia|2026-05-10|Gustavo Herrera Diaz|Salud y Vida
+18|Actualidad nacional|2026-05-15|Carlos Mendoza Silva|Actualidad Nacional
+19|Nuevos modelos de negocios|2026-05-20|Beatriz Castro Leon|Mundo Empresarial
+20|Tecnologias emergentes|2026-05-25|Veronica Cruz Navarro|Innovacion Tech`,
+"Doble INNER JOIN relaciona Artículo con Periodista y Revista."],
+["¿Cuántos empleados tiene cada sucursal?",
+"SELECT s.CodigoSucursal, s.Domicilio, COUNT(e.IdEmpleado) AS TotalEmpleados\nFROM Sucursal s LEFT JOIN Empleado e ON e.IdSucursal=s.IdSucursal\nGROUP BY s.CodigoSucursal, s.Domicilio ORDER BY s.CodigoSucursal;",
+"CodigoSucursal|Domicilio|TotalEmpleados",
+`SUC001|Av. Arequipa 1010, Lima|2
+SUC002|Av. Brasil 1250, Lima|2
+SUC003|Av. Javier Prado 2200, Lima|2
+SUC004|Av. La Marina 1500, Lima|2
+SUC005|Av. Angamos 1800, Lima|2
+SUC006|Av. Colonial 1450, Callao|1
+SUC007|Av. Universitaria 3200, Lima|1
+SUC008|Av. Primavera 450, Lima|1
+SUC009|Av. Benavides 1750, Lima|1
+SUC010|Av. Alfonso Ugarte 950, Lima|1
+SUC011|Av. Grau 850, Lima|1
+SUC012|Av. Tacna 720, Lima|1
+SUC013|Av. Canadá 1250, Lima|1
+SUC014|Av. República de Panamá 3300, Lima|1
+SUC015|Av. Tomás Marsano 1800, Lima|1
+SUC016|Av. Caminos del Inca 650, Lima|0
+SUC017|Av. Petit Thouars 1450, Lima|0
+SUC018|Av. Prolongación Iquitos 900, Lima|0
+SUC019|Av. Nicolás de Piérola 1100, Lima|0
+SUC020|Av. Elmer Faucett 1200, Callao|0`,
+"LEFT JOIN conserva sucursales sin empleados; COUNT las totaliza."]]],
+[7,"13-14",[
+["¿Cuántas revistas publica cada sucursal?",
+"SELECT s.CodigoSucursal, s.Domicilio, COUNT(sr.IdRevista) AS TotalRevistas\nFROM Sucursal s LEFT JOIN SucursalRevista sr ON sr.IdSucursal=s.IdSucursal\nGROUP BY s.CodigoSucursal, s.Domicilio ORDER BY s.CodigoSucursal;",
+"CodigoSucursal|Domicilio|TotalRevistas",
+`SUC001|Av. Arequipa 1010, Lima|2
+SUC002|Av. Brasil 1250, Lima|2
+SUC003|Av. Javier Prado 2200, Lima|2
+SUC004|Av. La Marina 1500, Lima|2
+SUC005|Av. Angamos 1800, Lima|2
+SUC006|Av. Colonial 1450, Callao|1
+SUC007|Av. Universitaria 3200, Lima|1
+SUC008|Av. Primavera 450, Lima|1
+SUC009|Av. Benavides 1750, Lima|1
+SUC010|Av. Alfonso Ugarte 950, Lima|1
+SUC011|Av. Grau 850, Lima|1
+SUC012|Av. Tacna 720, Lima|1
+SUC013|Av. Canadá 1250, Lima|1
+SUC014|Av. República de Panamá 3300, Lima|1
+SUC015|Av. Tomás Marsano 1800, Lima|1
+SUC016|Av. Caminos del Inca 650, Lima|0
+SUC017|Av. Petit Thouars 1450, Lima|0
+SUC018|Av. Prolongación Iquitos 900, Lima|0
+SUC019|Av. Nicolás de Piérola 1100, Lima|0
+SUC020|Av. Elmer Faucett 1200, Callao|0`,
+"LEFT JOIN permite contar revistas por sucursal, incluyendo las que tienen cero."],
+["¿Cuál es el promedio de ejemplares vendidos por revista?",
+"SELECT r.Titulo, AVG(e.EjemplaresVendidos*1.0) AS PromedioVendidos\nFROM Revista r INNER JOIN Ejemplar e ON e.IdRevista=r.IdRevista\nGROUP BY r.Titulo ORDER BY PromedioVendidos DESC;",
+"Revista|PromedioVendidos",
+`Economia Global|6633.333333
+Salud y Vida|6433.333333
+Cultura Peruana|6233.333333
+Cocina Peruana|6066.666667
+Actualidad Nacional|6033.333333
+Mundo Empresarial|5866.666667
+Negocios 360|5833.333333
+Ciencia y Futuro|5666.666667
+Innovacion Tech|5633.333333
+Sociedad Hoy|5466.666667
+Educacion Hoy|5433.333333
+Tecnologia Hoy|5400.000000
+Programacion Web|5266.666667
+Viajes y Turismo|5233.333333
+Mundo Digital|5200.000000
+Deportes Total|5033.333333
+Ciencia Actual|5000.000000
+Historia Viva|4833.333333
+Arte y Diseño|4633.333333
+Finanzas Personales|4433.333333`,
+"AVG calcula el promedio por revista; GROUP BY separa cada título."]]],
+[8,"15-16",[
+["¿Cuántos ejemplares se han vendido en total de cada revista?",
+"SELECT r.Titulo, SUM(e.EjemplaresVendidos) AS TotalVendidos\nFROM Revista r INNER JOIN Ejemplar e ON e.IdRevista=r.IdRevista\nGROUP BY r.Titulo ORDER BY TotalVendidos DESC;",
+"Revista|TotalVendidos",
+`Economia Global|19900
+Salud y Vida|19300
+Cultura Peruana|18700
+Cocina Peruana|18200
+Actualidad Nacional|18100
+Mundo Empresarial|17600
+Negocios 360|17500
+Ciencia y Futuro|17000
+Innovacion Tech|16900
+Sociedad Hoy|16400
+Educacion Hoy|16300
+Tecnologia Hoy|16200
+Programacion Web|15800
+Viajes y Turismo|15700
+Mundo Digital|15600
+Deportes Total|15100
+Ciencia Actual|15000
+Historia Viva|14500
+Arte y Diseño|13900
+Finanzas Personales|13300`,
+"SUM calcula el total vendido por revista, ordenado de mayor a menor."],
+["¿Cuántos artículos ha escrito cada periodista?",
+"SELECT p.Nombre+' '+p.Apellidos AS Periodista, COUNT(a.IdArticulo) AS TotalArticulos\nFROM Periodista p LEFT JOIN Articulo a ON a.IdPeriodista=p.IdPeriodista\nGROUP BY p.IdPeriodista, p.Nombre, p.Apellidos ORDER BY TotalArticulos DESC, Periodista;",
+"Periodista|TotalArticulos",
+`Beatriz Castro Leon|2
+Alberto Navarro Ruiz|1
+Carlos Mendoza Silva|1
+Diana Flores Torres|1
+Eduardo Ramirez Soto|1
+Fabiola Quispe Ramos|1
+Gustavo Herrera Diaz|1
+Helena Vargas Cruz|1
+Ivan Morales Perez|1
+Julia Salazar Medina|1
+Kevin Paredes Leon|1
+Laura Sanchez Castro|1
+Manuel Torres Vargas|1
+Natalia Rojas Mendoza|1
+Oscar Vega Campos|1
+Paola Molina Reyes|1
+Rafael Ortega Ruiz|1
+Sandra Delgado Silva|1
+Veronica Cruz Navarro|1
+Tomas Medina Flores|0`,
+"COUNT cuenta los artículos de cada periodista; LEFT JOIN conserva al que tiene cero."]]],
+[9,"17-18",[
+["¿Qué revistas tienen un promedio de ventas superior a 5 000 ejemplares?",
+"SELECT r.Titulo, AVG(e.EjemplaresVendidos*1.0) AS PromedioVendidos\nFROM Revista r INNER JOIN Ejemplar e ON e.IdRevista=r.IdRevista\nGROUP BY r.Titulo HAVING AVG(e.EjemplaresVendidos*1.0) > 5000\nORDER BY PromedioVendidos DESC;",
+"Revista|PromedioVendidos",
+`Economia Global|6633.333333
+Salud y Vida|6433.333333
+Cultura Peruana|6233.333333
+Cocina Peruana|6066.666667
+Actualidad Nacional|6033.333333
+Mundo Empresarial|5866.666667
+Negocios 360|5833.333333
+Ciencia y Futuro|5666.666667
+Innovacion Tech|5633.333333
+Sociedad Hoy|5466.666667
+Educacion Hoy|5433.333333
+Tecnologia Hoy|5400.000000
+Programacion Web|5266.666667
+Viajes y Turismo|5233.333333
+Mundo Digital|5200.000000
+Deportes Total|5033.333333`,
+"HAVING filtra los grupos cuyo promedio de ventas supera 5 000."],
+["¿Qué secciones fijas pertenecen a cada revista?",
+"SELECT r.Titulo, sf.Titulo AS Seccion, sf.Extension\nFROM Revista r INNER JOIN SeccionFija sf ON sf.IdRevista=r.IdRevista\nORDER BY r.Titulo, sf.Titulo;",
+"Revista|Seccion|Extension",
+`Actualidad Nacional|Entrevistas|6
+Actualidad Nacional|Innovacion|9
+Actualidad Nacional|Investigacion|4
+Actualidad Nacional|Noticias|7
+Actualidad Nacional|Opinion|3
+Arte y Diseño|Entrevistas|6
+Arte y Diseño|Innovacion|9
+Arte y Diseño|Investigacion|4
+Arte y Diseño|Opinion|3
+Ciencia Actual|Editorial|2
+Ciencia Actual|Entrevistas|8
+Ciencia Actual|Innovacion|3
+Ciencia Actual|Noticias|7
+Ciencia Actual|Opinion|5
+Ciencia y Futuro|Editorial|8
+Ciencia y Futuro|Innovacion|7
+Ciencia y Futuro|Investigacion|2
+Ciencia y Futuro|Noticias|5
+Cocina Peruana|Entrevistas|2
+Cocina Peruana|Opinion|7
+Cultura Peruana|Editorial|4
+Cultura Peruana|Innovacion|3
+Cultura Peruana|Investigacion|6
+Cultura Peruana|Noticias|9
+Deportes Total|Editorial|6
+Deportes Total|Noticias|3
+Economia Global|Entrevistas|6
+Economia Global|Opinion|3
+Educacion Hoy|Editorial|2
+Educacion Hoy|Entrevistas|8
+Educacion Hoy|Noticias|7
+Educacion Hoy|Opinion|5
+Finanzas Personales|Editorial|6
+Finanzas Personales|Entrevistas|4
+Finanzas Personales|Innovacion|7
+Finanzas Personales|Noticias|3
+Finanzas Personales|Opinion|9
+Historia Viva|Innovacion|3
+Historia Viva|Investigacion|6
+Historia Viva|Noticias|9
+Innovacion Tech|Entrevistas|2
+Innovacion Tech|Innovacion|5
+Innovacion Tech|Opinion|7
+Mundo Digital|Entrevistas|2
+Mundo Digital|Innovacion|5
+Mundo Digital|Investigacion|8
+Mundo Digital|Opinion|7
+Mundo Empresarial|Editorial|2
+Mundo Empresarial|Noticias|7
+Mundo Empresarial|Opinion|5
+Negocios 360|Innovacion|7
+Negocios 360|Investigacion|2
+Programacion Web|Innovacion|3
+Programacion Web|Investigacion|6
+Salud y Vida|Editorial|6
+Salud y Vida|Noticias|3
+Salud y Vida|Opinion|9
+Sociedad Hoy|Entrevistas|2
+Sociedad Hoy|Innovacion|5
+Sociedad Hoy|Investigacion|8
+Sociedad Hoy|Noticias|3
+Sociedad Hoy|Opinion|7
+Tecnologia Hoy|Innovacion|7
+Tecnologia Hoy|Investigacion|2
+Tecnologia Hoy|Noticias|5
+Viajes y Turismo|Editorial|8
+Viajes y Turismo|Innovacion|7
+Viajes y Turismo|Investigacion|2
+Viajes y Turismo|Noticias|5
+Viajes y Turismo|Opinion|3`,
+"INNER JOIN relaciona cada revista con sus secciones y su extensión (70 filas)."]]],
+[10,"19-20",[
+["¿Cuál es el total de páginas destinadas a las secciones fijas de cada revista?",
+"SELECT r.Titulo, SUM(sf.Extension) AS TotalPaginasSecciones\nFROM Revista r INNER JOIN SeccionFija sf ON sf.IdRevista=r.IdRevista\nGROUP BY r.Titulo ORDER BY TotalPaginasSecciones DESC;",
+"Revista|TotalPaginasSecciones",
+`Finanzas Personales|29
+Actualidad Nacional|29
+Viajes y Turismo|25
+Sociedad Hoy|25
+Ciencia Actual|25
+Mundo Digital|22
+Educacion Hoy|22
+Cultura Peruana|22
+Ciencia y Futuro|22
+Arte y Diseño|22
+Salud y Vida|18
+Historia Viva|18
+Tecnologia Hoy|14
+Mundo Empresarial|14
+Innovacion Tech|14
+Programacion Web|9
+Negocios 360|9
+Economia Global|9
+Deportes Total|9
+Cocina Peruana|9`,
+"SUM de Extension calcula el total de páginas de secciones por revista."],
+["¿Cuántos ejemplares se han vendido en total en toda la cadena editorial?",
+"SELECT SUM(EjemplaresVendidos) AS TotalVendidosCadena FROM Ejemplar;",
+"TotalVendidosCadena",
+`331000`,
+"SUM sin agrupar obtiene el total global de ejemplares vendidos."]]],
+[11,"21-22",[
+["¿Cuál es la revista que registra la mayor cantidad total de ejemplares vendidos?",
+"SELECT TOP 1 WITH TIES r.Titulo, SUM(e.EjemplaresVendidos) AS TotalVendidos\nFROM Revista r INNER JOIN Ejemplar e ON e.IdRevista=r.IdRevista\nGROUP BY r.Titulo ORDER BY TotalVendidos DESC;",
+"Revista|TotalVendidos",
+`Economia Global|19900`,
+"TOP 1 WITH TIES devuelve la revista (o revistas empatadas) con el mayor total."],
+["¿Cuál es la revista que registra la menor cantidad total de ejemplares vendidos?",
+"SELECT TOP 1 WITH TIES r.Titulo, SUM(e.EjemplaresVendidos) AS TotalVendidos\nFROM Revista r INNER JOIN Ejemplar e ON e.IdRevista=r.IdRevista\nGROUP BY r.Titulo ORDER BY TotalVendidos ASC;",
+"Revista|TotalVendidos",
+`Finanzas Personales|13300`,
+"La misma agregación, ordenada ASC, revela la menor cantidad vendida."]]],
+[12,"23-24",[
+["¿Qué revistas tienen un promedio de ventas superior al promedio general?",
+"SELECT r.Titulo, AVG(e.EjemplaresVendidos*1.0) AS PromedioRevista\nFROM Revista r INNER JOIN Ejemplar e ON e.IdRevista=r.IdRevista\nGROUP BY r.Titulo\nHAVING AVG(e.EjemplaresVendidos*1.0) > (SELECT AVG(EjemplaresVendidos*1.0) FROM Ejemplar)\nORDER BY PromedioRevista DESC;",
+"Revista|PromedioRevista",
+`Economia Global|6633.333333
+Salud y Vida|6433.333333
+Cultura Peruana|6233.333333
+Cocina Peruana|6066.666667
+Actualidad Nacional|6033.333333
+Mundo Empresarial|5866.666667
+Negocios 360|5833.333333
+Ciencia y Futuro|5666.666667
+Innovacion Tech|5633.333333`,
+"HAVING compara cada promedio contra una subconsulta con el promedio general (5 516.67)."],
+["¿Qué periodistas han escrito más de un artículo?",
+"SELECT p.Nombre+' '+p.Apellidos AS Periodista, COUNT(a.IdArticulo) AS TotalArticulos\nFROM Periodista p INNER JOIN Articulo a ON a.IdPeriodista=p.IdPeriodista\nGROUP BY p.IdPeriodista, p.Nombre, p.Apellidos\nHAVING COUNT(a.IdArticulo) > 1;",
+"Periodista|TotalArticulos",
+`Beatriz Castro Leon|2`,
+"COUNT y HAVING aíslan a los periodistas con más de un artículo registrado."]]],
+[13,"25-26",[
+["¿Qué revistas no tienen ningún artículo registrado?",
+"SELECT r.IdRevista, r.Titulo FROM Revista r\nLEFT JOIN Articulo a ON a.IdRevista=r.IdRevista WHERE a.IdArticulo IS NULL;",
+"IdRevista|Titulo",
+``,
+"LEFT JOIN busca revistas sin artículos; con los datos actuales no hay ninguna."],
+["¿Qué periodistas todavía no tienen artículos registrados?",
+"SELECT p.IdPeriodista, p.Nombre, p.Apellidos, p.Especialidad FROM Periodista p\nLEFT JOIN Articulo a ON a.IdPeriodista=p.IdPeriodista WHERE a.IdArticulo IS NULL;",
+"IdPeriodista|Nombre|Apellidos|Especialidad",
+`19|Tomas|Medina Flores|Deportes`,
+"LEFT JOIN permite localizar al único periodista sin artículos: Tomás Medina Flores."]]],
+[14,"27-28",[
+["¿Qué sucursales no tienen empleados asignados?",
+"SELECT s.IdSucursal, s.CodigoSucursal, s.Domicilio FROM Sucursal s\nLEFT JOIN Empleado e ON e.IdSucursal=s.IdSucursal WHERE e.IdEmpleado IS NULL;",
+"IdSucursal|CodigoSucursal|Domicilio",
+`16|SUC016|Av. Caminos del Inca 650, Lima
+17|SUC017|Av. Petit Thouars 1450, Lima
+18|SUC018|Av. Prolongación Iquitos 900, Lima
+19|SUC019|Av. Nicolás de Piérola 1100, Lima
+20|SUC020|Av. Elmer Faucett 1200, Callao`,
+"LEFT JOIN identifica las sucursales que quedan sin empleados asociados."],
+["¿Qué sucursales publican más de una revista?",
+"SELECT s.CodigoSucursal, s.Domicilio, COUNT(sr.IdRevista) AS TotalRevistas\nFROM Sucursal s INNER JOIN SucursalRevista sr ON sr.IdSucursal=s.IdSucursal\nGROUP BY s.CodigoSucursal, s.Domicilio HAVING COUNT(sr.IdRevista) > 1;",
+"CodigoSucursal|Domicilio|TotalRevistas",
+`SUC001|Av. Arequipa 1010, Lima|2
+SUC002|Av. Brasil 1250, Lima|2
+SUC003|Av. Javier Prado 2200, Lima|2
+SUC004|Av. La Marina 1500, Lima|2
+SUC005|Av. Angamos 1800, Lima|2`,
+"GROUP BY y HAVING > 1 identifican a las sucursales con más de una revista."]]],
+[15,"29-30",[
+["¿Cuál es la posición de cada revista según sus ventas totales?",
+"SELECT RANK() OVER (ORDER BY SUM(e.EjemplaresVendidos) DESC) AS Posicion,\nr.Titulo AS Revista, SUM(e.EjemplaresVendidos) AS TotalVendidos\nFROM Revista r INNER JOIN Ejemplar e ON e.IdRevista=r.IdRevista\nGROUP BY r.Titulo ORDER BY Posicion;",
+"Posicion|Revista|TotalVendidos",
+`1|Economia Global|19900
+2|Salud y Vida|19300
+3|Cultura Peruana|18700
+4|Cocina Peruana|18200
+5|Actualidad Nacional|18100
+6|Mundo Empresarial|17600
+7|Negocios 360|17500
+8|Ciencia y Futuro|17000
+9|Innovacion Tech|16900
+10|Sociedad Hoy|16400
+11|Educacion Hoy|16300
+12|Tecnologia Hoy|16200
+13|Programacion Web|15800
+14|Viajes y Turismo|15700
+15|Mundo Digital|15600
+16|Deportes Total|15100
+17|Ciencia Actual|15000
+18|Historia Viva|14500
+19|Arte y Diseño|13900
+20|Finanzas Personales|13300`,
+"RANK() genera una posición para cada revista según su volumen total de ventas."],
+["¿Qué porcentaje de las ventas totales representa cada revista?",
+"SELECT r.Titulo, SUM(e.EjemplaresVendidos) AS TotalVendidos,\nCAST(SUM(e.EjemplaresVendidos)*100.0/SUM(SUM(e.EjemplaresVendidos)) OVER() AS DECIMAL(5,2)) AS Porcentaje\nFROM Revista r INNER JOIN Ejemplar e ON e.IdRevista=r.IdRevista\nGROUP BY r.Titulo ORDER BY Porcentaje DESC;",
+"Revista|TotalVendidos|Porcentaje",
+`Economia Global|19900|6.01
+Salud y Vida|19300|5.83
+Cultura Peruana|18700|5.65
+Cocina Peruana|18200|5.50
+Actualidad Nacional|18100|5.47
+Mundo Empresarial|17600|5.32
+Negocios 360|17500|5.29
+Ciencia y Futuro|17000|5.14
+Innovacion Tech|16900|5.11
+Sociedad Hoy|16400|4.95
+Educacion Hoy|16300|4.92
+Tecnologia Hoy|16200|4.89
+Programacion Web|15800|4.77
+Viajes y Turismo|15700|4.74
+Mundo Digital|15600|4.71
+Deportes Total|15100|4.56
+Ciencia Actual|15000|4.53
+Historia Viva|14500|4.38
+Arte y Diseño|13900|4.20
+Finanzas Personales|13300|4.02`,
+"La función de ventana calcula qué parte del total representa cada revista."]]],
+[16,"31-32",[
+["Clasifique las revistas según su volumen total de ventas",
+"SELECT r.Titulo, SUM(e.EjemplaresVendidos) AS TotalVendidos,\nCASE WHEN SUM(e.EjemplaresVendidos)>=17000 THEN 'Ventas altas'\nWHEN SUM(e.EjemplaresVendidos)>=15000 THEN 'Ventas medias'\nELSE 'Ventas bajas' END AS Clasificacion\nFROM Revista r INNER JOIN Ejemplar e ON e.IdRevista=r.IdRevista\nGROUP BY r.Titulo ORDER BY TotalVendidos DESC;",
+"Revista|TotalVendidos|Clasificacion",
+`Economia Global|19900|Ventas altas
+Salud y Vida|19300|Ventas altas
+Cultura Peruana|18700|Ventas altas
+Cocina Peruana|18200|Ventas altas
+Actualidad Nacional|18100|Ventas altas
+Mundo Empresarial|17600|Ventas altas
+Negocios 360|17500|Ventas altas
+Ciencia y Futuro|17000|Ventas altas
+Innovacion Tech|16900|Ventas medias
+Sociedad Hoy|16400|Ventas medias
+Educacion Hoy|16300|Ventas medias
+Tecnologia Hoy|16200|Ventas medias
+Programacion Web|15800|Ventas medias
+Viajes y Turismo|15700|Ventas medias
+Mundo Digital|15600|Ventas medias
+Deportes Total|15100|Ventas medias
+Ciencia Actual|15000|Ventas medias
+Historia Viva|14500|Ventas bajas
+Arte y Diseño|13900|Ventas bajas
+Finanzas Personales|13300|Ventas bajas`,
+"CASE clasifica cada revista: alta desde 17 000, media desde 15 000, baja debajo."],
+["¿Cuál es la evolución acumulada de ejemplares vendidos por fecha?",
+"SELECT Fecha, SUM(EjemplaresVendidos) AS VendidosEnLaFecha,\nSUM(SUM(EjemplaresVendidos)) OVER (ORDER BY Fecha\nROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS AcumuladoVendidos\nFROM Ejemplar GROUP BY Fecha ORDER BY Fecha;",
+"Fecha|VendidosEnLaFecha|AcumuladoVendidos",
+`2026-01-05|35400|35400
+2026-02-05|68500|103900
+2026-03-05|110900|214800
+2026-04-05|76200|291000
+2026-05-05|40000|331000`,
+"Primero se suman las ventas por fecha y luego la ventana acumula el total."]]],
+[17,"33-34",[
+["Muestre las revistas cuyo promedio de ventas supera 4 500 ejemplares",
+"SELECT r.Titulo, AVG(e.EjemplaresVendidos*1.0) AS PromedioVendidos\nFROM Revista r INNER JOIN Ejemplar e ON e.IdRevista=r.IdRevista\nGROUP BY r.Titulo HAVING AVG(e.EjemplaresVendidos*1.0) > 4500\nORDER BY PromedioVendidos DESC;",
+"Revista|PromedioVendidos",
+`Economia Global|6633.333333
+Salud y Vida|6433.333333
+Cultura Peruana|6233.333333
+Cocina Peruana|6066.666667
+Actualidad Nacional|6033.333333
+Mundo Empresarial|5866.666667
+Negocios 360|5833.333333
+Ciencia y Futuro|5666.666667
+Innovacion Tech|5633.333333
+Sociedad Hoy|5466.666667
+Educacion Hoy|5433.333333
+Tecnologia Hoy|5400.000000
+Programacion Web|5266.666667
+Viajes y Turismo|5233.333333
+Mundo Digital|5200.000000
+Deportes Total|5033.333333
+Ciencia Actual|5000.000000
+Historia Viva|4833.333333
+Arte y Diseño|4633.333333`,
+"HAVING filtra las revistas cuyo promedio supera 4 500 ejemplares."],
+["¿Cuál es la revista cuyo ejemplar tiene el mayor número de páginas?",
+"SELECT TOP 1 WITH TIES r.Titulo, e.Fecha, e.NumeroPaginas\nFROM Ejemplar e INNER JOIN Revista r ON r.IdRevista=e.IdRevista\nORDER BY e.NumeroPaginas DESC;",
+"Revista|Fecha|NumeroPaginas",
+`Tecnologia Hoy|2026-03-05|152
+Economia Global|2026-04-05|152
+Viajes y Turismo|2026-03-05|152
+Arte y Diseño|2026-04-05|152
+Mundo Empresarial|2026-05-05|152`,
+"TOP 1 WITH TIES devuelve todos los ejemplares que comparten el máximo de páginas."]]],
+[18,"35-36",[
+["Muestre cada revista y determine si sus ventas están por encima, igual o por debajo del promedio general",
+"SELECT r.Titulo, AVG(e.EjemplaresVendidos*1.0) AS PromedioRevista,\n(SELECT AVG(EjemplaresVendidos*1.0) FROM Ejemplar) AS PromedioGeneral,\nCASE WHEN ... THEN 'Por encima del promedio' WHEN ... THEN 'Igual al promedio'\nELSE 'Por debajo del promedio' END AS Comparacion\nFROM Revista r INNER JOIN Ejemplar e ON e.IdRevista=r.IdRevista GROUP BY r.Titulo;",
+"Revista|PromedioRevista|PromedioGeneral|Comparacion",
+`Economia Global|6633.333333|5516.666667|Por encima del promedio
+Salud y Vida|6433.333333|5516.666667|Por encima del promedio
+Cultura Peruana|6233.333333|5516.666667|Por encima del promedio
+Cocina Peruana|6066.666667|5516.666667|Por encima del promedio
+Actualidad Nacional|6033.333333|5516.666667|Por encima del promedio
+Mundo Empresarial|5866.666667|5516.666667|Por encima del promedio
+Negocios 360|5833.333333|5516.666667|Por encima del promedio
+Ciencia y Futuro|5666.666667|5516.666667|Por encima del promedio
+Innovacion Tech|5633.333333|5516.666667|Por encima del promedio
+Sociedad Hoy|5466.666667|5516.666667|Por debajo del promedio
+Educacion Hoy|5433.333333|5516.666667|Por debajo del promedio
+Tecnologia Hoy|5400.000000|5516.666667|Por debajo del promedio
+Programacion Web|5266.666667|5516.666667|Por debajo del promedio
+Viajes y Turismo|5233.333333|5516.666667|Por debajo del promedio
+Mundo Digital|5200.000000|5516.666667|Por debajo del promedio
+Deportes Total|5033.333333|5516.666667|Por debajo del promedio
+Ciencia Actual|5000.000000|5516.666667|Por debajo del promedio
+Historia Viva|4833.333333|5516.666667|Por debajo del promedio
+Arte y Diseño|4633.333333|5516.666667|Por debajo del promedio
+Finanzas Personales|4433.333333|5516.666667|Por debajo del promedio`,
+"Se compara el promedio de cada revista con el promedio general; CASE indica la relación."],
+["¿Qué periodistas tienen especialidad en tecnología o ciencia?",
+"SELECT IdPeriodista, Nombre, Apellidos, Especialidad FROM Periodista\nWHERE Especialidad = 'Tecnologia' OR Especialidad = 'Ciencia';",
+"IdPeriodista|Nombre|Apellidos|Especialidad",
+`1|Alberto|Navarro Ruiz|Tecnologia
+4|Diana|Flores Torres|Ciencia
+9|Ivan|Morales Perez|Tecnologia
+17|Rafael|Ortega Ruiz|Tecnologia
+18|Sandra|Delgado Silva|Ciencia`,
+"WHERE con OR selecciona periodistas especializados en Tecnología o Ciencia."]]],
+[19,"37-38",[
+["Obtenga los periodistas cuya especialidad sea tecnología, ciencia, educación o economía",
+"SELECT IdPeriodista, Nombre, Apellidos, Especialidad FROM Periodista\nWHERE Especialidad IN ('Tecnologia','Ciencia','Educacion','Economia')\nORDER BY Especialidad, Apellidos;",
+"IdPeriodista|Nombre|Apellidos|Especialidad",
+`18|Sandra|Delgado Silva|Ciencia
+4|Diana|Flores Torres|Ciencia
+2|Beatriz|Castro Leon|Economia
+20|Veronica|Cruz Navarro|Educacion
+8|Helena|Vargas Cruz|Educacion
+9|Ivan|Morales Perez|Tecnologia
+1|Alberto|Navarro Ruiz|Tecnologia
+17|Rafael|Ortega Ruiz|Tecnologia`,
+"IN permite seleccionar periodistas de varias especialidades sin encadenar OR."],
+["¿Cuál es la revista que posee mayor cantidad de secciones fijas?",
+"SELECT TOP 1 WITH TIES r.Titulo AS Revista, COUNT(sf.IdSeccion) AS TotalSecciones\nFROM Revista r INNER JOIN SeccionFija sf ON sf.IdRevista=r.IdRevista\nGROUP BY r.Titulo ORDER BY TotalSecciones DESC;",
+"Revista|TotalSecciones",
+`Actualidad Nacional|5
+Ciencia Actual|5
+Finanzas Personales|5
+Sociedad Hoy|5
+Viajes y Turismo|5`,
+"COUNT cuenta las secciones por revista; TOP 1 WITH TIES conserva los empates."]]],
+[20,"39-40",[
+["¿Cuántos ejemplares se vendieron durante cada mes?",
+"SELECT YEAR(Fecha) AS Anio, MONTH(Fecha) AS Mes, DATENAME(MONTH,Fecha) AS NombreMes,\nSUM(EjemplaresVendidos) AS TotalVendidos\nFROM Ejemplar GROUP BY YEAR(Fecha), MONTH(Fecha), DATENAME(MONTH,Fecha)\nORDER BY Anio, Mes;",
+"Anio|Mes|NombreMes|TotalVendidos",
+`2026|1|Enero|35400
+2026|2|Febrero|68500
+2026|3|Marzo|110900
+2026|4|Abril|76200
+2026|5|Mayo|40000`,
+"YEAR, MONTH y SUM agrupan las ventas por mes del año 2026."],
+["Informe por revista: cantidad de artículos, secciones, total de ventas y promedio",
+"SELECT r.Titulo, ISNULL(art.TotalArticulos,0), ISNULL(sec.TotalSecciones,0),\nISNULL(ven.TotalVentas,0), ISNULL(ven.PromedioVentas,0)\nFROM Revista r\nLEFT JOIN (SELECT IdRevista, COUNT(*) TotalArticulos FROM Articulo GROUP BY IdRevista) art ON art.IdRevista=r.IdRevista\nLEFT JOIN (SELECT IdRevista, COUNT(*) TotalSecciones FROM SeccionFija GROUP BY IdRevista) sec ON sec.IdRevista=r.IdRevista\nLEFT JOIN (SELECT IdRevista, SUM(EjemplaresVendidos) TotalVentas, AVG(EjemplaresVendidos*1.0) PromedioVentas FROM Ejemplar GROUP BY IdRevista) ven ON ven.IdRevista=r.IdRevista\nORDER BY r.Titulo;",
+"Revista|CantidadArticulos|CantidadSecciones|TotalVentas|PromedioVentas",
+`Actualidad Nacional|1|5|18100|6033.333333
+Arte y Diseño|1|4|13900|4633.333333
+Ciencia Actual|1|5|15000|5000.000000
+Ciencia y Futuro|1|4|17000|5666.666667
+Cocina Peruana|1|2|18200|6066.666667
+Cultura Peruana|1|4|18700|6233.333333
+Deportes Total|1|2|15100|5033.333333
+Economia Global|1|2|19900|6633.333333
+Educacion Hoy|1|4|16300|5433.333333
+Finanzas Personales|1|5|13300|4433.333333
+Historia Viva|1|3|14500|4833.333333
+Innovacion Tech|1|3|16900|5633.333333
+Mundo Digital|1|4|15600|5200.000000
+Mundo Empresarial|1|3|17600|5866.666667
+Negocios 360|1|2|17500|5833.333333
+Programacion Web|1|2|15800|5266.666667
+Salud y Vida|1|3|19300|6433.333333
+Sociedad Hoy|1|5|16400|5466.666667
+Tecnologia Hoy|1|3|16200|5400.000000
+Viajes y Turismo|1|5|15700|5233.333333`,
+"Subconsultas agrupadas evitan que los JOIN multipliquen los conteos."]]]
+];
+
+let current = 0;
+const navEl = document.getElementById('nav');
+const mainEl = document.getElementById('main');
+
+function renderTable(colsStr, rowsStr){
+  if(!rowsStr || !rowsStr.trim()) return '<div class="empty-note">— Sin resultados —</div>';
+  const cols = colsStr.split('|');
+  const rows = rowsStr.trim().split('\n').map(r=>r.split('|'));
+  let h = '<div class="tbl-wrap"><table><thead><tr>'+cols.map(c=>'<th>'+c+'</th>').join('')+'</tr></thead><tbody>';
+  rows.forEach(r=>{ h += '<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'; });
+  h += '</tbody></table></div>';
+  return h;
+}
+
+DATA.forEach((ch,i)=>{
+  const b = document.createElement('button');
+  b.textContent = 'Cap. '+String(i+1).padStart(2,'0')+' · Desafíos '+ch[1];
+  b.onclick = ()=>render(i);
+  navEl.appendChild(b);
+});
+
+function render(i){
+  current = i;
+  [...navEl.children].forEach((b,idx)=>b.classList.toggle('active', idx===i));
+  const ch = DATA[i];
+  let html = '<div class="chapter-title">⚔ CAPÍTULO '+String(i+1).padStart(2,'0')+' — DESAFÍOS '+ch[1]+'</div>';
+  ch[2].forEach((d,n)=>{
+    html += '<div class="card"><span class="tag">PRUEBA '+(n+1)+'</span><h3>'+d[0]+'</h3>'
+      + '<div class="label">Runa de invocación (SQL)</div><pre>'+d[1].replace(/</g,'&lt;')+'</pre>'
+      + '<div class="label">Tabla de resultados</div>'+renderTable(d[2], d[3])
+      + '<div class="label">Sabiduría del Oráculo</div><div class="explain">'+d[4]+'</div></div>';
+  });
+  mainEl.innerHTML = html;
+  mainEl.scrollTop = 0;
+  document.getElementById('prev').disabled = i===0;
+  document.getElementById('next').disabled = i===DATA.length-1;
+}
+document.getElementById('prev').onclick = ()=>render(Math.max(0,current-1));
+document.getElementById('next').onclick = ()=>render(Math.min(DATA.length-1,current+1));
+render(0);
+</script>
+</body>
+</html>
