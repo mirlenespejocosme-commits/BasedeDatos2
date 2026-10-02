@@ -233,6 +233,10 @@
                 {
                   "nombre": "Info 6",
                   "archivo": "info6.jpg"
+                },
+                {
+                  "nombre": "Info 7",
+                  "archivo": "info7.jpg"
                 }
               ]
             }
