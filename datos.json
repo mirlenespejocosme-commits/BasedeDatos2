@@ -237,6 +237,10 @@
                 {
                   "nombre": "Info 7",
                   "archivo": "info7.jpg"
+                },
+                {
+                  "nombre": "Info 8",
+                  "archivo": "info8.jpg"
                 }
               ]
             }
