@@ -313,6 +313,15 @@
                   "archivo": "MANUAL_PARA_LA_CREACION_DE_UNA_CUENTA_DE_MICROSOFT_AZURE_.pdf"
                 }
               ]
+            },
+            {
+              "nombre": "ACTIVIDAD 2",
+              "actividades": [
+                {
+                  "nombre": "CREACION DE BASES DE DATOS GRADOS Y TITULOS",
+                  "archivo": "CREACION_DE_LAS_TABLAS_DE_LA_BASE_DE_DATOS_GRADOS_Y_TITULOS_EN_MICROSOFT_AZURE_.pdf"
+                }
+              ]
             }
           ]
         },
