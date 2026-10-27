@@ -331,6 +331,15 @@
                   "archivo": "CREACION_DE_LAS_TABLAS_DE_LA_BASE_DE_DATOS_GRADOS_Y_TITULOS_EN_MICROSOFT_AZURE_.pdf"
                 }
               ]
+            },
+            {
+              "nombre": "ACTIVIDAD 4",
+              "actividades": [
+                {
+                  "nombre": "SINCRONIZACION DE AZURE CON SQL SERVER",
+                  "archivo": "MANUAL_DE_CONFIGURACION_PARA_QUE_FUNCIONE_SIMULTANEAMENTE_Ms._AZURE_Y_Ms._SQL_SERVER_.pdf"
+                }
+              ]
             }
           ]
         },
