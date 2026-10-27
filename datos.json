@@ -298,16 +298,21 @@
     },
     {
       "id": "unidad-2",
-      "titulo": "Unidad 2",
+      "titulo": "Unidad 2: Administración Instancias,Estructuras de Almacenamiento y Gestión de Datos Masivos",
       "semanas": [
         {
           "id": "u2-s1",
-          "titulo": "Semana 1",
+          "titulo": "Semana 5",
           "descripcion": "Descripción del avance o trabajo de esta semana.",
           "carpetas": [
             {
-              "nombre": "Trabajos",
-              "actividades": []
+              "nombre": "ACTIVIDAD 1",
+              "actividades": [
+                {
+                  "nombre": "CREACION DE CUENTA DE MICROSOFT AZURE",
+                  "archivo": "MANUAL_PARA_LA_CREACION_DE_UNA_CUENTA_DE_MICROSOFT_AZURE_.pdf"
+                }
+              ]
             }
           ]
         },
