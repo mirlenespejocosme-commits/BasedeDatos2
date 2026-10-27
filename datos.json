@@ -322,6 +322,15 @@
                   "archivo": "CREACION_DE_LAS_TABLAS_DE_LA_BASE_DE_DATOS_GRADOS_Y_TITULOS_EN_MICROSOFT_AZURE_.pdf"
                 }
               ]
+            },
+            {
+              "nombre": "ACTIVIDAD 3",
+              "actividades": [
+                {
+                  "nombre": "CREACION DE TABLAS DE GRADOS Y TITULOS",
+                  "archivo": "CREACION_DE_LAS_TABLAS_DE_LA_BASE_DE_DATOS_GRADOS_Y_TITULOS_EN_MICROSOFT_AZURE_.pdf"
+                }
+              ]
             }
           ]
         },
