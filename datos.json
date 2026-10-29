@@ -345,12 +345,17 @@
         },
         {
           "id": "u2-s2",
-          "titulo": "Semana 2",
+          "titulo": "Semana 6",
           "descripcion": "Descripción del avance o trabajo de esta semana.",
           "carpetas": [
             {
-              "nombre": "Trabajos",
-              "actividades": []
+              "nombre": "Actividad 1",
+              "actividades": [
+                {
+                  "nombre": "Portafolio de Ejercicios",
+                  "archivo": "actividad_1_semana_6_portafolio_de_ejercicios.pdf"
+                }
+              ]
             }
           ]
         },
