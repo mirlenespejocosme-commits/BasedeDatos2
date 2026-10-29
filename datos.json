@@ -460,6 +460,10 @@
                 {
                   "nombre": "Índices SQL Clustered y Nonclustered",
                   "archivo": "Índices_SQL__Clustered_y_Nonclustered.png"
+                },
+                {
+                  "nombre": "Diseño avanzado de índices según los patrones de consulta",
+                  "archivo": "Diseño_avanzado_de_índices_según_los_patrones_de_consulta.png"
                 }
               ]
             }
