@@ -430,8 +430,13 @@
           "descripcion": "Sustentación y Pruebas de Carga de la \nInfraestructura de Almacenamiento",
           "carpetas": [
             {
-              "nombre": "Trabajos",
-              "actividades": []
+              "nombre": "Actividad 1",
+              "actividades": [
+                {
+                  "nombre": "Guia De Laboratorio",
+                  "archivo": "infografias_laboratorio_1-5_sem_8.pdf.pdf"
+                }
+              ]
             }
           ]
         }
