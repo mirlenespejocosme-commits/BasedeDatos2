@@ -388,6 +388,10 @@
                 {
                   "nombre": "Configurar la memoria en 3 pasos",
                   "archivo": "Configurar_la_memoria_en_3_pasos.png"
+                },
+                {
+                  "nombre": "Paralelismo_MAXDOP_y Cost Threshold",
+                  "archivo": "Paralelismo_MAXDOP_y_Cost_Threshold.png"
                 }
               ]
             }
