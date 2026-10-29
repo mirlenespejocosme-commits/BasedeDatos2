@@ -396,6 +396,10 @@
                 {
                   "nombre": "Colaciones en SQL Server_y el conflicto con tempdb",
                   "archivo": "Colaciones_en_SQL_Server_y_el_conflicto_con_tempdb.png"
+                },
+                {
+                  "nombre": "Archivos de la base de_datos y TempDB",
+                  "archivo": "Archivos_de_la_base_de_datos_y_TempDB.png"
                 }
               ]
             }
