@@ -303,7 +303,7 @@
         {
           "id": "u2-s1",
           "titulo": "Semana 5",
-          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "descripcion": "Configuración de la Instancia y Gestión \nde Memoria del Servidor",
           "carpetas": [
             {
               "nombre": "ACTIVIDAD 1",
@@ -346,7 +346,7 @@
         {
           "id": "u2-s2",
           "titulo": "Semana 6",
-          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "descripcion": "Arquitectura Física de \nAlmacenamiento y Distribución de \nArchivos",
           "carpetas": [
             {
               "nombre": "Actividad 1",
@@ -415,8 +415,8 @@
         },
         {
           "id": "u2-s3",
-          "titulo": "Semana 3",
-          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "titulo": "Semana 7",
+          "descripcion": "Organización de Esquemas Lógicos y \nEstrategias de Indexación",
           "carpetas": [
             {
               "nombre": "Trabajos",
@@ -426,8 +426,8 @@
         },
         {
           "id": "u2-s4",
-          "titulo": "Semana 4",
-          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "titulo": "Semana 8",
+          "descripcion": "Sustentación y Pruebas de Carga de la \nInfraestructura de Almacenamiento",
           "carpetas": [
             {
               "nombre": "Trabajos",
