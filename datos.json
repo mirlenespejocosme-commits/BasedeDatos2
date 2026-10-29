@@ -420,7 +420,12 @@
           "carpetas": [
             {
               "nombre": "Actividad 1",
-              "actividades": []
+              "actividades": [
+                {
+                  "nombre": "Informe de Laboratorio",
+                  "archivo": "actividad_2_semana_6_GUIA_DE_LABORATORIO-2.pdf"
+                }
+              ]
             },
             {
               "nombre": "Infografías",
