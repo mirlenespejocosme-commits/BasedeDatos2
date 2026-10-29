@@ -456,6 +456,10 @@
                 {
                   "nombre": "Fundamentos de la indexación de bases de datos",
                   "archivo": "Fundamentos_de_la_indexación_de_bases_de_datos.png"
+                },
+                {
+                  "nombre": "Índices SQL Clustered y Nonclustered",
+                  "archivo": "Índices_SQL__Clustered_y_Nonclustered.png"
                 }
               ]
             }
