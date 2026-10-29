@@ -365,6 +365,15 @@
                   "archivo": "actividad_2_semana_6_GUIA_DE_LABORATORIO.pdf"
                 }
               ]
+            },
+            {
+              "nombre": "Infografías",
+              "actividades": [
+                {
+                  "nombre": "Base_de_datos_GradosyTitulos_esquemas",
+                  "archivo": "Base_de_datos_GradosyTitulos_6_esquemas.jpg"
+                }
+              ]
             }
           ]
         },
