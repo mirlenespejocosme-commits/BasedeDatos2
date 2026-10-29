@@ -452,6 +452,10 @@
                 {
                   "nombre": "Implementación de esquemas lógicos en SQL Server",
                   "archivo": "Implementación_de_esquemas_lógicos_en_SQL_Server.png"
+                },
+                {
+                  "nombre": "Fundamentos de la indexación de bases de datos",
+                  "archivo": "Fundamentos_de_la_indexación_de_bases_de_datos.png"
                 }
               ]
             }
