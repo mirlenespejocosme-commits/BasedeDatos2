@@ -356,6 +356,15 @@
                   "archivo": "actividad_1_semana_6_portafolio_de_ejercicios.pdf"
                 }
               ]
+            },
+            {
+              "nombre": "Actividad 2",
+              "actividades": [
+                {
+                  "nombre": "Guias de Laboratorios",
+                  "archivo": "actividad_2_semana_6_GUIA_DE_LABORATORIO.pdf"
+                }
+              ]
             }
           ]
         },
