@@ -384,6 +384,10 @@
                 {
                   "nombre": "¿Cuánta RAM le doy a SQL Server?",
                   "archivo": "¿Cuánta_RAM_le_doy_a_SQL_Server?.png"
+                },
+                {
+                  "nombre": "Configurar la memoria en 3 pasos",
+                  "archivo": "Configurar_la_memoria_en_3_pasos.png"
                 }
               ]
             }
