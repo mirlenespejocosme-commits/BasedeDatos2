@@ -437,6 +437,15 @@
                   "archivo": "Guia_de_Laboratorio_semana_7_1-5.pdf.pdf"
                 }
               ]
+            },
+            {
+              "nombre": "Infografías ",
+              "actividades": [
+                {
+                  "nombre": "Esquemas lógicos e indexación",
+                  "archivo": "Esquemas_lógicos_e_indexación.png"
+                }
+              ]
             }
           ]
         }
