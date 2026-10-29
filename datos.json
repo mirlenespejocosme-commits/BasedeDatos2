@@ -372,6 +372,10 @@
                 {
                   "nombre": "Base_de_datos_GradosyTitulos_esquemas",
                   "archivo": "Base_de_datos_GradosyTitulos_6_esquemas.jpg"
+                },
+                {
+                  "nombre": "Diagnóstico_de_la_instancia_con_DMVs",
+                  "archivo": "Diagnóstico_de_la_instancia_con_DMVs.jpg"
                 }
               ]
             }
