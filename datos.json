@@ -380,6 +380,10 @@
                 {
                   "nombre": "Cómo_usa_la_memoria_SQL Server",
                   "archivo": "Cómo_usa_la_memoria_SQL_Server.jpg"
+                },
+                {
+                  "nombre": "¿Cuánta RAM le doy a SQL Server?",
+                  "archivo": "¿Cuánta_RAM_le_doy_a_SQL_Server?.png"
                 }
               ]
             }
