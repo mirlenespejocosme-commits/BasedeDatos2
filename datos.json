@@ -400,6 +400,10 @@
                 {
                   "nombre": "Archivos de la base de_datos y TempDB",
                   "archivo": "Archivos_de_la_base_de_datos_y_TempDB.png"
+                },
+                {
+                  "nombre": "Seguridad de la instancia_Seguridad_ConfiguracionDBMS",
+                  "archivo": "Seguridad_de_la_instancia_Seguridad_ConfiguracionDBMS.png"
                 }
               ]
             }
