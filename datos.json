@@ -392,6 +392,10 @@
                 {
                   "nombre": "Paralelismo_MAXDOP_y Cost Threshold",
                   "archivo": "Paralelismo_MAXDOP_y_Cost_Threshold.png"
+                },
+                {
+                  "nombre": "Colaciones en SQL Server_y el conflicto con tempdb",
+                  "archivo": "Colaciones_en_SQL_Server_y_el_conflicto_con_tempdb.png"
                 }
               ]
             }
