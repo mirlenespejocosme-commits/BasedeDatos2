@@ -436,6 +436,10 @@
                 {
                   "nombre": "Creacion de grupos y bases de datos",
                   "archivo": "Creacion_de_grupos_y_bases_de_datos.png"
+                },
+                {
+                  "nombre": "Asignación Estrategica de Tablas",
+                  "archivo": "Asignación_estratégica_de_Tablas.png"
                 }
               ]
             }
