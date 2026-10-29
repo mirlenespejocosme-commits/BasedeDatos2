@@ -448,6 +448,10 @@
                 {
                   "nombre": "Organización de esquemas lógicos",
                   "archivo": "Organización_de_esquemas_lógicos.png"
+                },
+                {
+                  "nombre": "Implementación de esquemas lógicos en SQL Server",
+                  "archivo": "Implementación_de_esquemas_lógicos_en_SQL_Server.png"
                 }
               ]
             }
