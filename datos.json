@@ -376,6 +376,10 @@
                 {
                   "nombre": "Diagnóstico_de_la_instancia_con_DMVs",
                   "archivo": "Diagnóstico_de_la_instancia_con_DMVs.jpg"
+                },
+                {
+                  "nombre": "Cómo_usa_la_memoria_SQL Server",
+                  "archivo": "Cómo_usa_la_memoria_SQL_Server.jpg"
                 }
               ]
             }
