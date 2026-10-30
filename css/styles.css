@@ -232,3 +232,48 @@ footer {
 footer p {
     margin: 5px 0;
 }
+
+/* Acordeón de Actividades */
+.actividad-acordeon {
+    margin-top: 10px;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: white;
+}
+.actividad-acordeon > summary {
+    background-color: #004080;
+    color: white;
+    padding: 8px 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.actividad-acordeon > summary::-webkit-details-marker { display: none; }
+.actividad-acordeon > summary::after { content: '▸'; }
+.actividad-acordeon[open] > summary { background-color: #003366; }
+.actividad-acordeon[open] > summary::after { content: '▾'; }
+.actividad-archivos {
+    padding: 8px 10px;
+    background-color: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.archivo-link {
+    display: block;
+    padding: 6px 12px;
+    background-color: #003366;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.archivo-link:hover { background-color: #ff9900; }
+.carpeta-vacia { font-size: 0.8rem; color: #999; padding: 4px 0; display: block; text-align: center; }
