@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
             let html = '';
 
             data.unidades.forEach((unidad, index) => {
-                const isOpen = index === 0 ? 'open' : '';
+                // Todas las unidades inician CERRADAS
                 html += `
-                    <details class="unidad" ${isOpen}>
+                    <details class="unidad"> 
                         <summary>${unidad.titulo}</summary>
                         <div class="semanas-grid">
                 `;
