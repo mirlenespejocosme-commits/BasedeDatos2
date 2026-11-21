@@ -564,7 +564,12 @@
             },
             {
               "nombre": "ACTIVIDAD 3",
-              "actividades": []
+              "actividades": [
+                {
+                  "nombre": "Modulo 3-Automatizacion de Respaldos con SQL Server",
+                  "archivo": "MOD_3_SEM_10.html"
+                }
+              ]
             },
             {
               "nombre": "ACTIVIDAD 4",
