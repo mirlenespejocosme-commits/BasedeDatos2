@@ -503,23 +503,28 @@
     },
     {
       "id": "unidad-3",
-      "titulo": "Unidad 3",
+      "titulo": "Unidad 3: Seguridad Corporativa, Conectividad de Red y Alta Disponibilidad de Datos\nCapacidad",
       "semanas": [
         {
           "id": "u3-s1",
-          "titulo": "Semana 1",
-          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "titulo": "Semana 9",
+          "descripcion": "Configuración de Conectividad de Red \ny Seguridad del Entorno",
           "carpetas": [
             {
-              "nombre": "Trabajos",
-              "actividades": []
+              "nombre": "ACTIVIDAD 1",
+              "actividades": [
+                {
+                  "nombre": "Modulo 1- Configuración de red y Conectividad remota ",
+                  "archivo": "Informe_Modulo_1_Configuracion_de_red_y_conectividad_remota_nuevo_estilo.html"
+                }
+              ]
             }
           ]
         },
         {
           "id": "u3-s2",
-          "titulo": "Semana 2",
-          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "titulo": "Semana 10",
+          "descripcion": "Gestión de Privilegios, Roles y \nAuditoría de Datos",
           "carpetas": [
             {
               "nombre": "Trabajos",
@@ -529,8 +534,8 @@
         },
         {
           "id": "u3-s3",
-          "titulo": "Semana 3",
-          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "titulo": "Semana 11",
+          "descripcion": "Estrategias de Backups Avanzados y \nAutomatización (Jobs)",
           "carpetas": [
             {
               "nombre": "Trabajos",
@@ -540,8 +545,8 @@
         },
         {
           "id": "u3-s4",
-          "titulo": "Semana 4",
-          "descripcion": "Descripción del avance o trabajo de esta semana.",
+          "titulo": "Semana 12",
+          "descripcion": "Recuperación ante Fallos y Planes de \nContingencia",
           "carpetas": [
             {
               "nombre": "Trabajos",
