@@ -573,7 +573,12 @@
             },
             {
               "nombre": "ACTIVIDAD 4",
-              "actividades": []
+              "actividades": [
+                {
+                  "nombre": "Modulo 4-Monitoreo basico del servidor ",
+                  "archivo": "MOD_4_SEM_10.html"
+                }
+              ]
             }
           ]
         },
