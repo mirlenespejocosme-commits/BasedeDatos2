@@ -545,7 +545,24 @@
           "descripcion": "Gestión de Privilegios, Roles y \nAuditoría de Datos",
           "carpetas": [
             {
-              "nombre": "Trabajos",
+              "nombre": "ACTIVIDAD 1",
+              "actividades": [
+                {
+                  "nombre": "Modulo 1-Gestion de Archivos y Modelos de recuperación ",
+                  "archivo": "MOD_1_SEM_10.html"
+                }
+              ]
+            },
+            {
+              "nombre": "ACTIVIDAD 2",
+              "actividades": []
+            },
+            {
+              "nombre": "ACTIVIDAD 3",
+              "actividades": []
+            },
+            {
+              "nombre": "ACTIVIDAD 4",
               "actividades": []
             }
           ]
