@@ -641,7 +641,12 @@
             },
             {
               "nombre": "ACTIVIDAD 2",
-              "actividades": []
+              "actividades": [
+                {
+                  "nombre": "Lección 2-Creación de copias de seguridad de SQL Server",
+                  "archivo": "LECCION2_SEM_12-2.html"
+                }
+              ]
             },
             {
               "nombre": "ACTIVIDAD 3",
