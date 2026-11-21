@@ -588,7 +588,24 @@
           "descripcion": "Estrategias de Backups Avanzados y \nAutomatización (Jobs)",
           "carpetas": [
             {
-              "nombre": "Trabajos",
+              "nombre": "ACTIVIDAD 1",
+              "actividades": [
+                {
+                  "nombre": "Lección 1-Autenticacion SQL y Windows",
+                  "archivo": "Leccion_1_estilo_juego_retro-2.html"
+                }
+              ]
+            },
+            {
+              "nombre": "ACTIVIDAD 2",
+              "actividades": []
+            },
+            {
+              "nombre": "ACTIVIDAD 3",
+              "actividades": []
+            },
+            {
+              "nombre": "ACTIVIDAD 4",
               "actividades": []
             }
           ]
