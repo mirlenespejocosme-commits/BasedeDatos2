@@ -631,7 +631,20 @@
           "descripcion": "Recuperación ante Fallos y Planes de \nContingencia",
           "carpetas": [
             {
-              "nombre": "Trabajos",
+              "nombre": "ACTIVIDAD 1",
+              "actividades": [
+                {
+                  "nombre": "Lección 1-Fundamentos de recuperación y respaldo de base de datos",
+                  "archivo": "LECCION1_SEM_12-2.html"
+                }
+              ]
+            },
+            {
+              "nombre": "ACTIVIDAD 2",
+              "actividades": []
+            },
+            {
+              "nombre": "ACTIVIDAD 3",
               "actividades": []
             }
           ]
