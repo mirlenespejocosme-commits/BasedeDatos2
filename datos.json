@@ -555,7 +555,12 @@
             },
             {
               "nombre": "ACTIVIDAD 2",
-              "actividades": []
+              "actividades": [
+                {
+                  "nombre": "Modulo 2-Seguridad Roles y Asignación de Permisos",
+                  "archivo": "MOD_2_SEM_10.html"
+                }
+              ]
             },
             {
               "nombre": "ACTIVIDAD 3",
