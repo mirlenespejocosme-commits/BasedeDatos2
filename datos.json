@@ -607,7 +607,12 @@
             },
             {
               "nombre": "ACTIVIDAD 3",
-              "actividades": []
+              "actividades": [
+                {
+                  "nombre": "Lección 3-Roles fijos y personalizados",
+                  "archivo": "leccion-3-2.html"
+                }
+              ]
             },
             {
               "nombre": "ACTIVIDAD 4",
