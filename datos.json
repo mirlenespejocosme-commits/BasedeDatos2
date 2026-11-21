@@ -598,7 +598,12 @@
             },
             {
               "nombre": "ACTIVIDAD 2",
-              "actividades": []
+              "actividades": [
+                {
+                  "nombre": "Lección 2-Login y Usuario de BD",
+                  "archivo": "Leccion_2_estilo_juego_retro.html"
+                }
+              ]
             },
             {
               "nombre": "ACTIVIDAD 3",
