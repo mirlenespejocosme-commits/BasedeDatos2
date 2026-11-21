@@ -650,7 +650,12 @@
             },
             {
               "nombre": "ACTIVIDAD 3",
-              "actividades": []
+              "actividades": [
+                {
+                  "nombre": "Lección 3-Restauracion de base de datos en SQL Server",
+                  "archivo": "LECCION3_SEM_12-2.html"
+                }
+              ]
             }
           ]
         }
