@@ -518,6 +518,15 @@
                   "archivo": "Informe_Modulo_1_Configuracion_de_red_y_conectividad_remota_nuevo_estilo.html"
                 }
               ]
+            },
+            {
+              "nombre": "ACTIVIDAD 2",
+              "actividades": [
+                {
+                  "nombre": "Modulo 2-Politicas de autenticacion segura a nivel de servidores",
+                  "archivo": "Modulo_2_Autenticacion_segura_a_nivel_de_servidor_nuevo_estilo.html"
+                }
+              ]
             }
           ]
         },
