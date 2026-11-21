@@ -616,7 +616,12 @@
             },
             {
               "nombre": "ACTIVIDAD 4",
-              "actividades": []
+              "actividades": [
+                {
+                  "nombre": "Lección 4-Grand Denny y Revote",
+                  "archivo": "leccion-4-2.html"
+                }
+              ]
             }
           ]
         },
